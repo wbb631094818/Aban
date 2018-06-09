@@ -24,7 +24,7 @@ import android.graphics.Canvas
 import android.graphics.Paint
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.helper.ItemTouchHelper
-import androidx.graphics.drawable.toBitmap
+import androidx.core.graphics.drawable.toBitmap
 import com.moez.QKSMS.R
 import common.util.extensions.dpToPx
 import io.reactivex.subjects.PublishSubject

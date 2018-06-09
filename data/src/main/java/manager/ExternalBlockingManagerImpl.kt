@@ -26,7 +26,7 @@ import android.os.Handler
 import android.os.IBinder
 import android.os.Message
 import android.os.Messenger
-import androidx.os.bundleOf
+import androidx.core.os.bundleOf
 import io.reactivex.Single
 import io.reactivex.subjects.SingleSubject
 import timber.log.Timber
