@@ -1,4 +1,8 @@
 /*
+ * Copyright (c) 2018. Arash Hatami
+ */
+
+/*
  * This file is auto-generated.  DO NOT MODIFY.
  * Original file: frameworks/base/core/java/android/net/INetworkPolicyManager.aidl
  */

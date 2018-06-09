@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2018. Arash Hatami
+ */
+
 package com.klinker.android.send_message;
 
 import android.content.Context;

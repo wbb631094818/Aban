@@ -1,4 +1,8 @@
 
+/*
+ * Copyright (c) 2018. Arash Hatami
+ */
+
 package com.android.mms.transaction;
 
 import android.app.PendingIntent;

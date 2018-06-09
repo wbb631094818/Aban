@@ -1,20 +1,5 @@
 /*
- * Copyright (C) 2017 Moez Bhatti <moez.bhatti@gmail.com>
- *
- * This file is part of QKSMS.
- *
- * QKSMS is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * QKSMS is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with QKSMS.  If not, see <http://www.gnu.org/licenses/>.
+ * Copyright (c) 2018. Arash Hatami
  */
 package feature.compose
 
@@ -34,10 +19,10 @@ import android.widget.ImageView
 import android.widget.ProgressBar
 import com.jakewharton.rxbinding2.view.clicks
 import com.jakewharton.rxbinding2.view.longClicks
-import com.moez.QKSMS.R
+import ir.hatamiarash.aban.R
 import common.Navigator
-import common.base.QkRealmAdapter
-import common.base.QkViewHolder
+import common.base.AbanRealmAdapter
+import common.base.AbanViewHolder
 import common.util.Colors
 import common.util.DateFormatter
 import common.util.GlideApp
@@ -71,7 +56,7 @@ class MessagesAdapter @Inject constructor(
         private val dateFormatter: DateFormatter,
         private val navigator: Navigator,
         private val prefs: Preferences
-) : QkRealmAdapter<Message>() {
+) : AbanRealmAdapter<Message>() {
 
     companion object {
         private const val VIEW_TYPE_MESSAGE_IN = 0
@@ -124,7 +109,7 @@ class MessagesAdapter @Inject constructor(
      * this a unique viewType even though it uses the same view, so that regular messages
      * don't need clipToOutline set to true, and they don't need to worry about images
      */
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): QkViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AbanViewHolder {
 
         // Use the parent's context to inflate the layout, otherwise link clicks will crash the app
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -143,7 +128,7 @@ class MessagesAdapter @Inject constructor(
 
         view.body.forwardTouches(view)
 
-        return QkViewHolder(view)
+        return AbanViewHolder(view)
     }
 
     override fun onDetachedFromRecyclerView(recyclerView: RecyclerView) {
@@ -151,7 +136,7 @@ class MessagesAdapter @Inject constructor(
         disposables.clear()
     }
 
-    override fun onBindViewHolder(viewHolder: QkViewHolder, position: Int) {
+    override fun onBindViewHolder(viewHolder: AbanViewHolder, position: Int) {
         val message = getItem(position)!!
         val previous = if (position == 0) null else getItem(position - 1)
         val next = if (position == itemCount - 1) null else getItem(position + 1)
@@ -294,7 +279,7 @@ class MessagesAdapter @Inject constructor(
         }
     }
 
-    private fun bindStatus(viewHolder: QkViewHolder, message: Message, next: Message?) {
+    private fun bindStatus(viewHolder: AbanViewHolder, message: Message, next: Message?) {
         val view = viewHolder.itemView
 
         val age = TimeUnit.MILLISECONDS.toMinutes(System.currentTimeMillis() - message.date)

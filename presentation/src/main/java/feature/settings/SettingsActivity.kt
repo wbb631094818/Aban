@@ -1,20 +1,5 @@
 /*
- * Copyright (C) 2017 Moez Bhatti <moez.bhatti@gmail.com>
- *
- * This file is part of QKSMS.
- *
- * QKSMS is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * QKSMS is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with QKSMS.  If not, see <http://www.gnu.org/licenses/>.
+ * Copyright (c) 2018. Arash Hatami
  */
 package feature.settings
 
@@ -26,13 +11,13 @@ import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.text.format.DateFormat
 import com.jakewharton.rxbinding2.view.clicks
-import com.moez.QKSMS.BuildConfig
-import com.moez.QKSMS.R
+import ir.hatamiarash.aban.BuildConfig
+import ir.hatamiarash.aban.R
 import com.uber.autodispose.AutoDispose.autoDisposable
 import com.uber.autodispose.android.lifecycle.scope
 import com.uber.autodispose.kotlin.autoDisposable
-import common.QkDialog
-import common.base.QkThemedActivity
+import common.AbanDialog
+import common.base.AbanThemedActivity
 import common.util.extensions.setBackgroundTint
 import common.util.extensions.setVisible
 import common.widget.PreferenceView
@@ -45,16 +30,16 @@ import kotlinx.android.synthetic.main.settings_theme_widget.*
 import util.Preferences
 import javax.inject.Inject
 
-class SettingsActivity : QkThemedActivity(), SettingsView {
+class SettingsActivity : AbanThemedActivity(), SettingsView {
 
-    @Inject lateinit var nightModeDialog: QkDialog
-    @Inject lateinit var textSizeDialog: QkDialog
-    @Inject lateinit var sendDelayDialog: QkDialog
-    @Inject lateinit var mmsSizeDialog: QkDialog
+    @Inject lateinit var nightModeDialog: AbanDialog
+    @Inject lateinit var textSizeDialog: AbanDialog
+    @Inject lateinit var sendDelayDialog: AbanDialog
+    @Inject lateinit var mmsSizeDialog: AbanDialog
     @Inject lateinit var viewModelFactory: ViewModelProvider.Factory
 
     override val preferenceClickIntent: Subject<PreferenceView> = PublishSubject.create()
-    override val viewQksmsPlusIntent: Subject<Unit> = PublishSubject.create()
+    override val viewAbansmsPlusIntent: Subject<Unit> = PublishSubject.create()
     override val nightModeSelectedIntent by lazy { nightModeDialog.adapter.menuItemClicks }
     override val startTimeSelectedIntent: Subject<Pair<Int, Int>> = PublishSubject.create()
     override val endTimeSelectedIntent: Subject<Pair<Int, Int>> = PublishSubject.create()
@@ -136,9 +121,9 @@ class SettingsActivity : QkThemedActivity(), SettingsView {
         mmsSizeDialog.adapter.selectedItem = state.maxMmsSizeId
     }
 
-    override fun showQksmsPlusSnackbar() {
+    override fun showAbansmsPlusSnackbar() {
         Snackbar.make(contentView, R.string.toast_qksms_plus, Snackbar.LENGTH_LONG).run {
-            setAction(R.string.button_more, { viewQksmsPlusIntent.onNext(Unit) })
+            setAction(R.string.button_more, { viewAbansmsPlusIntent.onNext(Unit) })
             show()
         }
     }

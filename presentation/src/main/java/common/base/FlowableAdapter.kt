@@ -1,20 +1,5 @@
 /*
- * Copyright (C) 2017 Moez Bhatti <moez.bhatti@gmail.com>
- *
- * This file is part of QKSMS.
- *
- * QKSMS is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * QKSMS is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with QKSMS.  If not, see <http://www.gnu.org/licenses/>.
+ * Copyright (c) 2018. Arash Hatami
  */
 package common.base
 
@@ -27,7 +12,7 @@ import io.reactivex.disposables.Disposable
  * Base RecyclerView.Adapter that provides some convenience when creating a new Adapter, such as
  * data list handing and item animations
  */
-abstract class FlowableAdapter<T> : QkAdapter<T>() {
+abstract class FlowableAdapter<T> : AbanAdapter<T>() {
 
     var flowable: Flowable<List<T>>? = null
         set(value) {

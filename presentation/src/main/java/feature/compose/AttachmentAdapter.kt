@@ -1,20 +1,5 @@
 /*
- * Copyright (C) 2017 Moez Bhatti <moez.bhatti@gmail.com>
- *
- * This file is part of QKSMS.
- *
- * QKSMS is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * QKSMS is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with QKSMS.  If not, see <http://www.gnu.org/licenses/>.
+ * Copyright (c) 2018. Arash Hatami
  */
 package feature.compose
 
@@ -24,9 +9,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.jakewharton.rxbinding2.view.clicks
-import com.moez.QKSMS.R
-import common.base.QkAdapter
-import common.base.QkViewHolder
+import ir.hatamiarash.aban.R
+import common.base.AbanAdapter
+import common.base.AbanViewHolder
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.subjects.PublishSubject
 import io.reactivex.subjects.Subject
@@ -35,18 +20,18 @@ import javax.inject.Inject
 
 class AttachmentAdapter @Inject constructor(
         private val context: Context
-) : QkAdapter<Attachment>() {
+) : AbanAdapter<Attachment>() {
 
     val attachmentDeleted: Subject<Attachment> = PublishSubject.create()
 
     private val disposables = CompositeDisposable()
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): QkViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AbanViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.attachment_list_item, parent, false)
 
         view.thumbnailBounds.clipToOutline = true
 
-        return QkViewHolder(view)
+        return AbanViewHolder(view)
     }
 
     override fun onDetachedFromRecyclerView(recyclerView: RecyclerView) {
@@ -54,7 +39,7 @@ class AttachmentAdapter @Inject constructor(
         disposables.clear()
     }
 
-    override fun onBindViewHolder(holder: QkViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: AbanViewHolder, position: Int) {
         val attachment = getItem(position)
         val view = holder.itemView
 

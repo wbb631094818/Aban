@@ -1,21 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright (C) 2017 Moez Bhatti <moez.bhatti@gmail.com>
-  ~
-  ~ This file is part of QKSMS.
-  ~
-  ~ QKSMS is free software: you can redistribute it and/or modify
-  ~ it under the terms of the GNU General Public License as published by
-  ~ the Free Software Foundation, either version 3 of the License, or
-  ~ (at your option) any later version.
-  ~
-  ~ QKSMS is distributed in the hope that it will be useful,
-  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
-  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-  ~ GNU General Public License for more details.
-  ~
-  ~ You should have received a copy of the GNU General Public License
-  ~ along with QKSMS.  If not, see <http://www.gnu.org/licenses/>.
+  ~ Copyright (c) 2018. Arash Hatami
   -->
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -65,7 +50,7 @@
                 android:layout_marginStart="32dp"
                 android:orientation="vertical">
 
-                <common.widget.QkTextView
+                <common.widget.AbanTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/qksms_plus_description_title"
@@ -73,7 +58,7 @@
                     app:textColor="primary"
                     app:textSize="primary" />
 
-                <common.widget.QkTextView
+                <common.widget.AbanTextView
                     android:id="@+id/description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -81,7 +66,7 @@
                     app:textColor="secondary"
                     app:textSize="secondary" />
 
-                <common.widget.QkTextView
+                <common.widget.AbanTextView
                     android:id="@+id/upgrade"
                     style="@style/TextButton"
                     android:layout_marginTop="16dp"
@@ -90,7 +75,7 @@
                     app:textColor="primaryOnTheme"
                     tools:backgroundTint="@color/tools_theme" />
 
-                <common.widget.QkTextView
+                <common.widget.AbanTextView
                     android:id="@+id/upgradeDonate"
                     style="@style/TextButton"
                     android:layout_marginTop="8dp"
@@ -123,7 +108,7 @@
                     app:layout_constraintTop_toTopOf="parent"
                     tools:tint="@color/tools_theme" />
 
-                <common.widget.QkTextView
+                <common.widget.AbanTextView
                     android:id="@+id/thanksTitle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -135,7 +120,7 @@
                     app:textColor="primary"
                     app:textSize="secondary" />
 
-                <common.widget.QkTextView
+                <common.widget.AbanTextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="@string/qksms_plus_thanks_summary"
@@ -156,14 +141,14 @@
                 android:layout_marginStart="32dp"
                 android:orientation="vertical">
 
-                <common.widget.QkTextView
+                <common.widget.AbanTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/qksms_plus_free_title"
                     app:textColor="secondary"
                     app:textSize="secondary" />
 
-                <common.widget.QkTextView
+                <common.widget.AbanTextView
                     android:id="@+id/donate"
                     style="@style/TextButton"
                     android:layout_marginTop="16dp"
@@ -208,7 +193,7 @@
                 app:summary="@string/qksms_plus_more_summary"
                 app:title="@string/qksms_plus_more_title" />
 
-            <common.widget.QkTextView
+            <common.widget.AbanTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"

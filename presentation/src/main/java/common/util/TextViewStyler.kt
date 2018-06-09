@@ -1,31 +1,16 @@
 /*
- * Copyright (C) 2017 Moez Bhatti <moez.bhatti@gmail.com>
- *
- * This file is part of QKSMS.
- *
- * QKSMS is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * QKSMS is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with QKSMS.  If not, see <http://www.gnu.org/licenses/>.
+ * Copyright (c) 2018. Arash Hatami
  */
 package common.util
 
 import android.graphics.Typeface
 import android.util.AttributeSet
 import android.widget.TextView
-import com.moez.QKSMS.R
+import ir.hatamiarash.aban.R
 import common.util.extensions.getColorCompat
 import common.util.extensions.resolveThemeColor
-import common.widget.QkEditText
-import common.widget.QkTextView
+import common.widget.AbanEditText
+import common.widget.AbanTextView
 import util.Preferences
 import javax.inject.Inject
 
@@ -53,16 +38,16 @@ class TextViewStyler @Inject constructor(
     fun applyAttributes(textView: TextView, attrs: AttributeSet?) {
         textView.run {
             when (this) {
-                is QkTextView -> context.obtainStyledAttributes(attrs, R.styleable.QkTextView)?.run {
-                    val colorAttr = getInt(R.styleable.QkTextView_textColor, -1)
-                    val textSizeAttr = getInt(R.styleable.QkTextView_textSize, -1)
+                is AbanTextView -> context.obtainStyledAttributes(attrs, R.styleable.AbanTextView)?.run {
+                    val colorAttr = getInt(R.styleable.AbanTextView_textColor, -1)
+                    val textSizeAttr = getInt(R.styleable.AbanTextView_textSize, -1)
                     applyAttributes(textView, colorAttr, textSizeAttr)
                     recycle()
                 }
 
-                is QkEditText -> context.obtainStyledAttributes(attrs, R.styleable.QkEditText)?.run {
-                    val colorAttr = getInt(R.styleable.QkEditText_textColor, -1)
-                    val textSizeAttr = getInt(R.styleable.QkEditText_textSize, -1)
+                is AbanEditText -> context.obtainStyledAttributes(attrs, R.styleable.AbanEditText)?.run {
+                    val colorAttr = getInt(R.styleable.AbanEditText_textColor, -1)
+                    val textSizeAttr = getInt(R.styleable.AbanEditText_textSize, -1)
                     applyAttributes(textView, colorAttr, textSizeAttr)
                     recycle()
                 }

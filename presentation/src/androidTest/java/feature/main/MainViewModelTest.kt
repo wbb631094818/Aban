@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2018. Arash Hatami
+ */
+
 package feature.main
 
 import android.support.test.runner.AndroidJUnit4

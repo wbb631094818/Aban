@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2018. Arash Hatami
+ */
+
 package injection
 
 import dagger.Module
@@ -16,8 +20,8 @@ import feature.notificationprefs.NotificationPrefsActivity
 import feature.notificationprefs.NotificationPrefsActivityModule
 import feature.plus.PlusActivity
 import feature.plus.PlusActivityModule
-import feature.qkreply.QkReplyActivity
-import feature.qkreply.QkReplyActivityModule
+import feature.reply.AbanReplyActivity
+import feature.reply.AbanReplyActivityModule
 import feature.settings.SettingsActivity
 import feature.settings.SettingsActivityModule
 import feature.settings.about.AboutActivity
@@ -57,8 +61,8 @@ abstract class BuildersModule {
     abstract fun bindNotificationPrefsActivity(): NotificationPrefsActivity
 
     @ActivityScope
-    @ContributesAndroidInjector(modules = [QkReplyActivityModule::class])
-    abstract fun bindQkReplyActivity(): QkReplyActivity
+    @ContributesAndroidInjector(modules = [AbanReplyActivityModule::class])
+    abstract fun bindAbanReplyActivity(): AbanReplyActivity
 
     @ActivityScope
     @ContributesAndroidInjector(modules = [SettingsActivityModule::class])

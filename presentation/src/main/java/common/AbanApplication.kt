@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2018. Arash Hatami
+ */
+
 package common
 
 /*
@@ -25,8 +29,8 @@ import android.support.text.emoji.FontRequestEmojiCompatConfig
 import android.support.v4.provider.FontRequest
 import com.bugsnag.android.Bugsnag
 import com.bugsnag.android.Configuration
-import com.moez.QKSMS.BuildConfig
-import com.moez.QKSMS.R
+import ir.hatamiarash.aban.BuildConfig
+import ir.hatamiarash.aban.R
 import common.util.NightModeManager
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
@@ -36,11 +40,11 @@ import injection.appComponent
 import io.realm.Realm
 import io.realm.RealmConfiguration
 import manager.AnalyticsManager
-import migration.QkRealmMigration
+import migration.AbanRealmMigration
 import timber.log.Timber
 import javax.inject.Inject
 
-class QKApplication : Application(), HasActivityInjector {
+class AbanApplication : Application(), HasActivityInjector {
 
     /**
      * Inject this so that it is forced to initialize
@@ -67,7 +71,7 @@ class QKApplication : Application(), HasActivityInjector {
         Realm.init(this)
         Realm.setDefaultConfiguration(RealmConfiguration.Builder()
                 .compactOnLaunch()
-                .migration(QkRealmMigration())
+                .migration(AbanRealmMigration())
                 .schemaVersion(1)
                 .build())
 

@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2018. Arash Hatami
+ */
+
 package com.google.android.mms;
 
 import android.net.Uri;

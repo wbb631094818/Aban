@@ -1,10 +1,14 @@
+/*
+ * Copyright (c) 2018. Arash Hatami
+ */
+
 package feature.settings.about
 
-import common.base.QkView
+import common.base.AbanView
 import common.widget.PreferenceView
 import io.reactivex.subjects.Subject
 
-interface AboutView : QkView<Unit> {
+interface AboutView : AbanView<Unit> {
 
     val preferenceClickIntent: Subject<PreferenceView>
 

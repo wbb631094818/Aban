@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2018. Arash Hatami
+ */
+
 package feature.plus
 
 import android.arch.lifecycle.ViewModel

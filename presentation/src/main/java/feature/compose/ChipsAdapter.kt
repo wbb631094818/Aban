@@ -1,20 +1,5 @@
 /*
- * Copyright (C) 2017 Moez Bhatti <moez.bhatti@gmail.com>
- *
- * This file is part of QKSMS.
- *
- * QKSMS is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * QKSMS is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with QKSMS.  If not, see <http://www.gnu.org/licenses/>.
+ * Copyright (c) 2018. Arash Hatami
  */
 package feature.compose
 
@@ -27,19 +12,19 @@ import android.widget.RelativeLayout
 import com.google.android.flexbox.FlexboxLayoutManager
 import com.jakewharton.rxbinding2.widget.editorActions
 import com.jakewharton.rxbinding2.widget.textChanges
-import com.moez.QKSMS.R
-import common.base.QkAdapter
-import common.base.QkViewHolder
+import ir.hatamiarash.aban.R
+import common.base.AbanAdapter
+import common.base.AbanViewHolder
 import common.util.extensions.dpToPx
 import common.util.extensions.resolveThemeColor
 import common.util.extensions.showKeyboard
-import common.widget.QkEditText
+import common.widget.AbanEditText
 import io.reactivex.subjects.PublishSubject
 import kotlinx.android.synthetic.main.contact_chip.view.*
 import model.Contact
 import javax.inject.Inject
 
-class ChipsAdapter @Inject constructor(private val context: Context) : QkAdapter<Contact>() {
+class ChipsAdapter @Inject constructor(private val context: Context) : AbanAdapter<Contact>() {
 
     companion object {
         private const val TYPE_EDIT_TEXT = 0
@@ -47,7 +32,7 @@ class ChipsAdapter @Inject constructor(private val context: Context) : QkAdapter
     }
 
     private val hint: String = context.getString(R.string.title_compose)
-    private val editText = View.inflate(context, R.layout.chip_input_list_item, null) as QkEditText
+    private val editText = View.inflate(context, R.layout.chip_input_list_item, null) as AbanEditText
 
     var view: RecyclerView? = null
     val chipDeleted: PublishSubject<Contact> = PublishSubject.create<Contact>()
@@ -78,16 +63,16 @@ class ChipsAdapter @Inject constructor(private val context: Context) : QkAdapter
         TYPE_EDIT_TEXT -> {
             editText.setTextColor(parent.context.resolveThemeColor(android.R.attr.textColorPrimary))
             editText.setHintTextColor(parent.context.resolveThemeColor(android.R.attr.textColorTertiary))
-            QkViewHolder(editText)
+            AbanViewHolder(editText)
         }
 
         else -> {
             val inflater = LayoutInflater.from(parent.context)
-            QkViewHolder(inflater.inflate(R.layout.contact_chip, parent, false))
+            AbanViewHolder(inflater.inflate(R.layout.contact_chip, parent, false))
         }
     }
 
-    override fun onBindViewHolder(holder: QkViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: AbanViewHolder, position: Int) {
         when (getItemViewType(position)) {
             TYPE_ITEM -> {
                 val contact = getItem(position)

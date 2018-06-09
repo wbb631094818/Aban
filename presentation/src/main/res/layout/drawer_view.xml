@@ -1,21 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright (C) 2017 Moez Bhatti <moez.bhatti@gmail.com>
-  ~
-  ~ This file is part of QKSMS.
-  ~
-  ~ QKSMS is free software: you can redistribute it and/or modify
-  ~ it under the terms of the GNU General Public License as published by
-  ~ the Free Software Foundation, either version 3 of the License, or
-  ~ (at your option) any later version.
-  ~
-  ~ QKSMS is distributed in the hope that it will be useful,
-  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
-  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-  ~ GNU General Public License for more details.
-  ~
-  ~ You should have received a copy of the GNU General Public License
-  ~ along with QKSMS.  If not, see <http://www.gnu.org/licenses/>.
+  ~ Copyright (c) 2018. Arash Hatami
   -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -36,7 +21,7 @@
             android:src="@drawable/ic_inbox_black_24dp"
             tools:tint="@color/tools_theme" />
 
-        <common.widget.QkTextView
+        <common.widget.AbanTextView
             style="@style/DrawerText"
             android:text="@string/drawer_inbox" />
 
@@ -52,7 +37,7 @@
             android:src="@drawable/ic_archive_black_24dp"
             tools:tint="?android:attr/textColorSecondary" />
 
-        <common.widget.QkTextView
+        <common.widget.AbanTextView
             style="@style/DrawerText"
             android:text="@string/drawer_archived" />
 
@@ -69,7 +54,7 @@
             android:src="@drawable/ic_event_black_24dp"
             tools:tint="?android:attr/textColorSecondary" />
 
-        <common.widget.QkTextView
+        <common.widget.AbanTextView
             style="@style/DrawerText"
             android:text="@string/drawer_scheduled" />
 
@@ -81,7 +66,7 @@
         android:layout_marginTop="8dp"
         android:background="?android:attr/divider" />
 
-    <common.widget.QkTextView
+    <common.widget.AbanTextView
         style="@style/TextSecondary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -98,7 +83,7 @@
             android:src="@drawable/ic_settings_black_24dp"
             tools:tint="?android:attr/textColorSecondary" />
 
-        <common.widget.QkTextView
+        <common.widget.AbanTextView
             style="@style/DrawerText"
             android:text="@string/drawer_settings" />
 
@@ -114,7 +99,7 @@
             android:src="@drawable/ic_star_black_24dp"
             tools:tint="?android:attr/textColorSecondary" />
 
-        <common.widget.QkTextView
+        <common.widget.AbanTextView
             style="@style/DrawerText"
             android:text="@string/drawer_plus" />
 
@@ -130,7 +115,7 @@
             android:src="@drawable/ic_help_black_24dp"
             tools:tint="?android:attr/textColorSecondary" />
 
-        <common.widget.QkTextView
+        <common.widget.AbanTextView
             style="@style/DrawerText"
             android:text="@string/drawer_help" />
 
@@ -160,7 +145,7 @@
             app:layout_constraintTop_toTopOf="@id/rateTitle"
             tools:tint="@color/tools_theme" />
 
-        <common.widget.QkTextView
+        <common.widget.AbanTextView
             android:id="@+id/rateTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -175,7 +160,7 @@
             app:textColor="primary"
             app:textSize="primary" />
 
-        <common.widget.QkTextView
+        <common.widget.AbanTextView
             android:id="@+id/rateSummary"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -187,7 +172,7 @@
             app:textColor="secondary"
             app:textSize="secondary" />
 
-        <common.widget.QkTextView
+        <common.widget.AbanTextView
             android:id="@+id/rateDismiss"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -203,7 +188,7 @@
             app:textColor="tertiary"
             app:textSize="secondary" />
 
-        <common.widget.QkTextView
+        <common.widget.AbanTextView
             android:id="@+id/rateOkay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

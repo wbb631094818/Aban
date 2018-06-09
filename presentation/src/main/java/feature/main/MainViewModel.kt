@@ -1,28 +1,13 @@
 /*
- * Copyright (C) 2017 Moez Bhatti <moez.bhatti@gmail.com>
- *
- * This file is part of QKSMS.
- *
- * QKSMS is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * QKSMS is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with QKSMS.  If not, see <http://www.gnu.org/licenses/>.
+ * Copyright (c) 2018. Arash Hatami
  */
 package feature.main
 
-import com.moez.QKSMS.R
+import ir.hatamiarash.aban.R
 import com.uber.autodispose.android.lifecycle.scope
 import com.uber.autodispose.kotlin.autoDisposable
 import common.Navigator
-import common.base.QkViewModel
+import common.base.AbanViewModel
 import interactor.DeleteConversations
 import interactor.MarkAllSeen
 import interactor.MarkArchived
@@ -59,7 +44,7 @@ class MainViewModel @Inject constructor(
         private val ratingManager: RatingManager,
         private val syncMessages: SyncMessages,
         private val syncRepository: SyncRepository
-) : QkViewModel<MainView, MainState>(MainState(page = Inbox(data = messageRepo.getConversations()))) {
+) : AbanViewModel<MainView, MainState>(MainState(page = Inbox(data = messageRepo.getConversations()))) {
 
     init {
         disposables += deleteConversations
@@ -177,7 +162,7 @@ class MainViewModel @Inject constructor(
         view.drawerItemIntent
                 .doOnNext { newState { it.copy(drawerOpen = false) } }
                 .doOnNext { if (it == DrawerItem.SETTINGS) navigator.showSettings() }
-                .doOnNext { if (it == DrawerItem.PLUS) navigator.showQksmsPlusActivity() }
+                .doOnNext { if (it == DrawerItem.PLUS) navigator.showAbansmsPlusActivity() }
                 .doOnNext { if (it == DrawerItem.HELP) navigator.showSupport() }
                 .distinctUntilChanged()
                 .doOnNext {

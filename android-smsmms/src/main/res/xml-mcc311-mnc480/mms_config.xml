@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+<!--
+  ~ Copyright (c) 2018. Arash Hatami
+  -->
+
 <mms_config version="2">
     <!-- In case of single segment M-Notification.ind, this indicates whether
          TransactionID should be appended to URI or not. -->

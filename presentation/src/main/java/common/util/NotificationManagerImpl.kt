@@ -1,20 +1,5 @@
 /*
- * Copyright (C) 2017 Moez Bhatti <moez.bhatti@gmail.com>
- *
- * This file is part of QKSMS.
- *
- * QKSMS is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * QKSMS is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with QKSMS.  If not, see <http://www.gnu.org/licenses/>.
+ * Copyright (c) 2018. Arash Hatami
  */
 package common.util
 
@@ -32,10 +17,10 @@ import android.support.v4.app.NotificationManagerCompat
 import android.support.v4.app.RemoteInput
 import android.support.v4.app.TaskStackBuilder
 import android.telephony.PhoneNumberUtils
-import com.moez.QKSMS.R
+import ir.hatamiarash.aban.R
 import common.util.extensions.dpToPx
 import feature.compose.ComposeActivity
-import feature.qkreply.QkReplyActivity
+import feature.reply.AbanReplyActivity
 import receiver.MarkReadReceiver
 import receiver.MarkSeenReceiver
 import receiver.RemoteMessagingReceiver
@@ -174,7 +159,7 @@ class NotificationManagerImpl @Inject constructor(
         if (Build.VERSION.SDK_INT >= 24) {
             notification.addAction(getReplyAction(conversation.recipients[0]?.address.orEmpty(), threadId))
         } else {
-            val replyIntent = Intent(context, QkReplyActivity::class.java).putExtra("threadId", threadId)
+            val replyIntent = Intent(context, AbanReplyActivity::class.java).putExtra("threadId", threadId)
             val replyPI = PendingIntent.getActivity(context, threadId.toInt() + 40000, replyIntent, PendingIntent.FLAG_UPDATE_CURRENT)
             val replyAction = NotificationCompat.Action(R.drawable.ic_reply_white_24dp, context.getString(R.string.notification_reply), replyPI)
             notification.addAction(replyAction)
@@ -183,7 +168,7 @@ class NotificationManagerImpl @Inject constructor(
         if (prefs.qkreply.get()) {
             notification.priority = NotificationCompat.PRIORITY_DEFAULT
 
-            val intent = Intent(context, QkReplyActivity::class.java)
+            val intent = Intent(context, AbanReplyActivity::class.java)
                     .putExtra("threadId", threadId)
                     .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
 

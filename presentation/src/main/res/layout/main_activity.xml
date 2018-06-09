@@ -1,21 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright (C) 2017 Moez Bhatti <moez.bhatti@gmail.com>
-  ~
-  ~ This file is part of QKSMS.
-  ~
-  ~ QKSMS is free software: you can redistribute it and/or modify
-  ~ it under the terms of the GNU General Public License as published by
-  ~ the Free Software Foundation, either version 3 of the License, or
-  ~ (at your option) any later version.
-  ~
-  ~ QKSMS is distributed in the hope that it will be useful,
-  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
-  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-  ~ GNU General Public License for more details.
-  ~
-  ~ You should have received a copy of the GNU General Public License
-  ~ along with QKSMS.  If not, see <http://www.gnu.org/licenses/>.
+  ~ Copyright (c) 2018. Arash Hatami
   -->
 <android.support.v4.widget.DrawerLayout android:id="@+id/drawerLayout"
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -39,11 +24,11 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <common.widget.QkTextView
+            <common.widget.AbanTextView
                 android:id="@+id/toolbarTitle"
                 style="@style/ToolbarText" />
 
-            <common.widget.QkEditText
+            <common.widget.AbanEditText
                 android:id="@+id/toolbarSearch"
                 style="@style/ToolbarText"
                 android:hint="@string/title_conversations"
@@ -53,7 +38,7 @@
 
         </android.support.v7.widget.Toolbar>
 
-        <common.widget.QkTextView
+        <common.widget.AbanTextView
             android:id="@+id/empty"
             style="@style/TextSecondary"
             android:layout_width="match_parent"
@@ -130,7 +115,7 @@
             app:constraint_referenced_ids="syncingProgress,syncingLabel"
             tools:visibility="gone" />
 
-        <common.widget.QkTextView
+        <common.widget.AbanTextView
             android:id="@+id/snackbarTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -145,7 +130,7 @@
             app:textSize="primary"
             tools:text="Love texting again" />
 
-        <common.widget.QkTextView
+        <common.widget.AbanTextView
             android:id="@+id/snackbarMessage"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -159,7 +144,7 @@
             app:textSize="secondary"
             tools:text="Make QKSMS your default SMS app" />
 
-        <common.widget.QkTextView
+        <common.widget.AbanTextView
             android:id="@+id/snackbarButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -176,7 +161,7 @@
             app:textSize="secondary"
             tools:text="Change" />
 
-        <common.widget.QkTextView
+        <common.widget.AbanTextView
             android:id="@+id/syncingLabel"
             style="@style/TextPrimary"
             android:layout_width="match_parent"

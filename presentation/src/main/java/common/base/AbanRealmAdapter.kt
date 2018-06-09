@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2018. Arash Hatami
+ */
+
 package common.base
 
 import android.support.v7.widget.RecyclerView
@@ -11,7 +15,7 @@ import io.realm.RealmModel
 import io.realm.RealmRecyclerViewAdapter
 import io.realm.RealmResults
 
-abstract class QkRealmAdapter<T : RealmModel> : RealmRecyclerViewAdapter<T, QkViewHolder>(null, true) {
+abstract class AbanRealmAdapter<T : RealmModel> : RealmRecyclerViewAdapter<T, AbanViewHolder>(null, true) {
 
     /**
      * This view can be set, and the adapter will automatically control the visibility of this view

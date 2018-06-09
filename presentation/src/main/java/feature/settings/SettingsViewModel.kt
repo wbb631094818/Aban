@@ -1,29 +1,14 @@
 /*
- * Copyright (C) 2017 Moez Bhatti <moez.bhatti@gmail.com>
- *
- * This file is part of QKSMS.
- *
- * QKSMS is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * QKSMS is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with QKSMS.  If not, see <http://www.gnu.org/licenses/>.
+ * Copyright (c) 2018. Arash Hatami
  */
 package feature.settings
 
 import android.content.Context
-import com.moez.QKSMS.R
+import ir.hatamiarash.aban.R
 import com.uber.autodispose.android.lifecycle.scope
 import com.uber.autodispose.kotlin.autoDisposable
 import common.Navigator
-import common.base.QkViewModel
+import common.base.AbanViewModel
 import common.util.BillingManager
 import common.util.Colors
 import common.util.DateFormatter
@@ -45,7 +30,7 @@ class SettingsViewModel @Inject constructor(
         private val nightModeManager: NightModeManager,
         private val prefs: Preferences,
         private val syncMessages: SyncMessages
-) : QkViewModel<SettingsView, SettingsState>(SettingsState()) {
+) : AbanViewModel<SettingsView, SettingsState>(SettingsState()) {
 
 
     init {
@@ -165,7 +150,7 @@ class SettingsViewModel @Inject constructor(
         view.nightModeSelectedIntent
                 .withLatestFrom(billingManager.upgradeStatus, { mode, upgraded ->
                     if (!upgraded && mode == Preferences.NIGHT_MODE_AUTO) {
-                        view.showQksmsPlusSnackbar()
+                        view.showAbansmsPlusSnackbar()
                     } else {
                         nightModeManager.updateNightMode(mode)
                     }
@@ -173,9 +158,9 @@ class SettingsViewModel @Inject constructor(
                 .autoDisposable(view.scope())
                 .subscribe()
 
-        view.viewQksmsPlusIntent
+        view.viewAbansmsPlusIntent
                 .autoDisposable(view.scope())
-                .subscribe { navigator.showQksmsPlusActivity() }
+                .subscribe { navigator.showAbansmsPlusActivity() }
 
         view.startTimeSelectedIntent
                 .autoDisposable(view.scope())
@@ -192,7 +177,7 @@ class SettingsViewModel @Inject constructor(
         view.sendDelayChangedIntent
                 .withLatestFrom(billingManager.upgradeStatus, { duration, upgraded ->
                     if (!upgraded && duration != 0) {
-                        view.showQksmsPlusSnackbar()
+                        view.showAbansmsPlusSnackbar()
                     } else {
                         prefs.sendDelay.set(duration)
                     }

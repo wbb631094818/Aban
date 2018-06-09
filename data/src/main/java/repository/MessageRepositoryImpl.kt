@@ -1,20 +1,5 @@
 /*
- * Copyright (C) 2017 Moez Bhatti <moez.bhatti@gmail.com>
- *
- * This file is part of QKSMS.
- *
- * QKSMS is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * QKSMS is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with QKSMS.  If not, see <http://www.gnu.org/licenses/>.
+ * Copyright (c) 2018. Arash Hatami
  */
 package repository
 
@@ -419,14 +404,14 @@ class MessageRepositoryImpl @Inject constructor(
                 ?: arrayListOf()
 
         val sentIntents = parts.map {
-            val action = "com.moez.QKSMS.SMS_SENT"
+            val action = "ir.hatamiarash.aban.SMS_SENT"
             val intent = Intent(action).putExtra("id", message.id)
             BroadcastUtils.addClassName(context, intent, action)
             PendingIntent.getBroadcast(context, message.id.toInt(), intent, PendingIntent.FLAG_UPDATE_CURRENT)
         }
 
         val deliveredIntents = parts.map {
-            val action = "com.moez.QKSMS.SMS_DELIVERED"
+            val action = "ir.hatamiarash.aban.SMS_DELIVERED"
             val intent = Intent(action).putExtra("id", message.id)
             BroadcastUtils.addClassName(context, intent, action)
             val pendingIntent = PendingIntent.getBroadcast(context, message.id.toInt(), intent, PendingIntent.FLAG_UPDATE_CURRENT)
@@ -442,7 +427,7 @@ class MessageRepositoryImpl @Inject constructor(
     }
 
     private fun getIntentForDelayedSms(id: Long): PendingIntent {
-        val action = "com.moez.QKSMS.SEND_SMS"
+        val action = "ir.hatamiarash.aban.SEND_SMS"
         val intent = Intent(action).putExtra("id", id)
         BroadcastUtils.addClassName(context, intent, action)
         return PendingIntent.getBroadcast(context, id.toInt(), intent, PendingIntent.FLAG_UPDATE_CURRENT)

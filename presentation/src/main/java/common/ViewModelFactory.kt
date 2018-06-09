@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2018. Arash Hatami
+ */
+
 package common
 
 import android.arch.lifecycle.ViewModel

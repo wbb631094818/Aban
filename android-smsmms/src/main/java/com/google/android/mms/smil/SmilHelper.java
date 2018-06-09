@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2018. Arash Hatami
+ */
+
 package com.google.android.mms.smil;
 
 import com.android.mms.dom.smil.SmilDocumentImpl;

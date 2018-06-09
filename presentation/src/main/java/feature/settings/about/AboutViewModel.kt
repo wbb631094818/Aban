@@ -1,15 +1,19 @@
+/*
+ * Copyright (c) 2018. Arash Hatami
+ */
+
 package feature.settings.about
 
-import com.moez.QKSMS.R
+import ir.hatamiarash.aban.R
 import com.uber.autodispose.android.lifecycle.scope
 import com.uber.autodispose.kotlin.autoDisposable
 import common.Navigator
-import common.base.QkViewModel
+import common.base.AbanViewModel
 import javax.inject.Inject
 
 class AboutViewModel @Inject constructor(
         private val navigator: Navigator
-) : QkViewModel<AboutView, Unit>(Unit) {
+) : AbanViewModel<AboutView, Unit>(Unit) {
 
     override fun bindView(view: AboutView) {
         super.bindView(view)

@@ -1,20 +1,5 @@
 /*
- * Copyright (C) 2017 Moez Bhatti <moez.bhatti@gmail.com>
- *
- * This file is part of QKSMS.
- *
- * QKSMS is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * QKSMS is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with QKSMS.  If not, see <http://www.gnu.org/licenses/>.
+ * Copyright (c) 2018. Arash Hatami
  */
 package feature.themepicker
 
@@ -24,8 +9,8 @@ import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.widget.LinearLayoutManager
 import com.jakewharton.rxbinding2.view.clicks
-import com.moez.QKSMS.R
-import common.base.QkThemedActivity
+import ir.hatamiarash.aban.R
+import common.base.AbanThemedActivity
 import common.util.extensions.setBackgroundTint
 import common.util.extensions.setVisible
 import dagger.android.AndroidInjection
@@ -35,7 +20,7 @@ import kotlinx.android.synthetic.main.theme_picker_activity.*
 import kotlinx.android.synthetic.main.theme_picker_hsv.*
 import javax.inject.Inject
 
-class ThemePickerActivity : QkThemedActivity(), ThemePickerView {
+class ThemePickerActivity : AbanThemedActivity(), ThemePickerView {
 
     @Inject lateinit var themeAdapter: ThemeAdapter
     @Inject lateinit var themePagerAdapter: ThemePagerAdapter
@@ -45,7 +30,7 @@ class ThemePickerActivity : QkThemedActivity(), ThemePickerView {
     override val hsvThemeSelectedIntent by lazy { picker.selectedColor }
     override val hsvThemeClearedIntent by lazy { clear.clicks() }
     override val hsvThemeAppliedIntent by lazy { apply.clicks() }
-    override val viewQksmsPlusIntent: Subject<Unit> = PublishSubject.create()
+    override val viewAbansmsPlusIntent: Subject<Unit> = PublishSubject.create()
 
     private val viewModel by lazy { ViewModelProviders.of(this, viewModelFactory)[ThemePickerViewModel::class.java] }
 
@@ -67,9 +52,9 @@ class ThemePickerActivity : QkThemedActivity(), ThemePickerView {
         materialColors.adapter = themeAdapter
     }
 
-    override fun showQksmsPlusSnackbar() {
+    override fun showAbansmsPlusSnackbar() {
         Snackbar.make(contentView, R.string.toast_qksms_plus, Snackbar.LENGTH_LONG).run {
-            setAction(R.string.button_more, { viewQksmsPlusIntent.onNext(Unit) })
+            setAction(R.string.button_more, { viewAbansmsPlusIntent.onNext(Unit) })
             show()
         }
     }

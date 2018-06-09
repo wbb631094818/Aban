@@ -1,20 +1,5 @@
 /*
- * Copyright (C) 2017 Moez Bhatti <moez.bhatti@gmail.com>
- *
- * This file is part of QKSMS.
- *
- * QKSMS is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * QKSMS is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with QKSMS.  If not, see <http://www.gnu.org/licenses/>.
+ * Copyright (c) 2018. Arash Hatami
  */
 package feature.compose
 
@@ -22,9 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.jakewharton.rxbinding2.view.clicks
-import com.moez.QKSMS.R
-import common.base.QkAdapter
-import common.base.QkViewHolder
+import ir.hatamiarash.aban.R
+import common.base.AbanAdapter
+import common.base.AbanViewHolder
 import common.util.extensions.setVisible
 import io.reactivex.subjects.PublishSubject
 import io.reactivex.subjects.Subject
@@ -32,17 +17,17 @@ import kotlinx.android.synthetic.main.contact_list_item.view.*
 import model.Contact
 import javax.inject.Inject
 
-class ContactAdapter @Inject constructor() : QkAdapter<Contact>() {
+class ContactAdapter @Inject constructor() : AbanAdapter<Contact>() {
 
     val contactSelected: Subject<Contact> = PublishSubject.create()
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): QkViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AbanViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val view = layoutInflater.inflate(R.layout.contact_list_item, parent, false)
-        return QkViewHolder(view)
+        return AbanViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: QkViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: AbanViewHolder, position: Int) {
         val contact = getItem(position)
         val view = holder.itemView
 

@@ -23,7 +23,7 @@ import com.amplitude.api.Amplitude
 import com.amplitude.api.AmplitudeClient
 import com.amplitude.api.Identify
 import com.mixpanel.android.mpmetrics.MixpanelAPI
-import com.moez.QKSMS.BuildConfig
+import ir.hatamiarash.aban.BuildConfig
 import manager.AnalyticsManager
 import org.json.JSONArray
 import org.json.JSONObject

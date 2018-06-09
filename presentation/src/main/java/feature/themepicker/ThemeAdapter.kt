@@ -1,20 +1,5 @@
 /*
- * Copyright (C) 2017 Moez Bhatti <moez.bhatti@gmail.com>
- *
- * This file is part of QKSMS.
- *
- * QKSMS is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * QKSMS is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with QKSMS.  If not, see <http://www.gnu.org/licenses/>.
+ * Copyright (c) 2018. Arash Hatami
  */
 package feature.themepicker
 
@@ -25,9 +10,9 @@ import android.view.ViewGroup
 import com.google.android.flexbox.FlexDirection
 import com.google.android.flexbox.FlexWrap
 import com.google.android.flexbox.FlexboxLayout
-import com.moez.QKSMS.R
-import common.base.QkAdapter
-import common.base.QkViewHolder
+import ir.hatamiarash.aban.R
+import common.base.AbanAdapter
+import common.base.AbanViewHolder
 import common.util.Colors
 import common.util.extensions.dpToPx
 import common.util.extensions.setBackgroundTint
@@ -42,7 +27,7 @@ import javax.inject.Inject
 class ThemeAdapter @Inject constructor(
         private val context: Context,
         private val colors: Colors
-) : QkAdapter<List<Int>>() {
+) : AbanAdapter<List<Int>>() {
 
     val colorSelected: Subject<Int> = PublishSubject.create()
 
@@ -60,15 +45,15 @@ class ThemeAdapter @Inject constructor(
 
     private var iconTint = 0
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): QkViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AbanViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.theme_palette_list_item, parent, false)
         view.palette.flexWrap = FlexWrap.WRAP
         view.palette.flexDirection = FlexDirection.ROW
 
-        return QkViewHolder(view)
+        return AbanViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: QkViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: AbanViewHolder, position: Int) {
         val palette = getItem(position)
         val view = holder.itemView
 

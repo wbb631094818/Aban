@@ -1,20 +1,5 @@
 /*
- * Copyright (C) 2017 Moez Bhatti <moez.bhatti@gmail.com>
- *
- * This file is part of QKSMS.
- *
- * QKSMS is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * QKSMS is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with QKSMS.  If not, see <http://www.gnu.org/licenses/>.
+ * Copyright (c) 2018. Arash Hatami
  */
 package common
 
@@ -25,9 +10,9 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.jakewharton.rxbinding2.view.clicks
-import com.moez.QKSMS.R
-import common.base.QkAdapter
-import common.base.QkViewHolder
+import ir.hatamiarash.aban.R
+import common.base.AbanAdapter
+import common.base.AbanViewHolder
 import common.util.Colors
 import common.util.extensions.resolveThemeColor
 import common.util.extensions.setVisible
@@ -39,7 +24,7 @@ import javax.inject.Inject
 
 data class MenuItem(val title: String, val actionId: Int)
 
-class MenuItemAdapter @Inject constructor(private val context: Context, private val colors: Colors) : QkAdapter<MenuItem>() {
+class MenuItemAdapter @Inject constructor(private val context: Context, private val colors: Colors) : AbanAdapter<MenuItem>() {
 
     val menuItemClicks: Subject<Int> = PublishSubject.create()
 
@@ -63,7 +48,7 @@ class MenuItemAdapter @Inject constructor(private val context: Context, private 
                 .mapIndexed { index, title -> MenuItem(title, valueInts?.getOrNull(index) ?: index) }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): QkViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AbanViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val view = layoutInflater.inflate(R.layout.menu_list_item, parent, false)
 
@@ -74,10 +59,10 @@ class MenuItemAdapter @Inject constructor(private val context: Context, private 
         val text = parent.context.resolveThemeColor(android.R.attr.textColorTertiary)
         view.check.imageTintList = ColorStateList(states, intArrayOf(colors.theme().theme, text))
 
-        return QkViewHolder(view)
+        return AbanViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: QkViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: AbanViewHolder, position: Int) {
         val menuItem = getItem(position)
         val view = holder.itemView
 

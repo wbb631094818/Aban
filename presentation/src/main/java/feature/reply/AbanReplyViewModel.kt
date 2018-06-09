@@ -1,30 +1,15 @@
 /*
- * Copyright (C) 2017 Moez Bhatti <moez.bhatti@gmail.com>
- *
- * This file is part of QKSMS.
- *
- * QKSMS is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * QKSMS is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with QKSMS.  If not, see <http://www.gnu.org/licenses/>.
+ * Copyright (c) 2018. Arash Hatami
  */
-package feature.qkreply
+package feature.reply
 
 import android.content.Intent
 import android.telephony.SmsMessage
-import com.moez.QKSMS.R
+import ir.hatamiarash.aban.R
 import com.uber.autodispose.android.lifecycle.scope
 import com.uber.autodispose.kotlin.autoDisposable
 import common.Navigator
-import common.base.QkViewModel
+import common.base.AbanViewModel
 import interactor.MarkRead
 import interactor.SendMessage
 import io.reactivex.rxkotlin.plusAssign
@@ -41,13 +26,13 @@ import util.extensions.mapNotNull
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
-class QkReplyViewModel @Inject constructor(
+class AbanReplyViewModel @Inject constructor(
         private val intent: Intent,
         private val markRead: MarkRead,
         private val messageRepo: MessageRepository,
         private val navigator: Navigator,
         private val sendMessage: SendMessage
-) : QkViewModel<QkReplyView, QkReplyState>(QkReplyState()) {
+) : AbanViewModel<AbanReplyView, AbanReplyState>(AbanReplyState()) {
 
     private val conversation by lazy {
         messageRepo.getConversationAsync(intent.getLongExtra("threadId", -1))
@@ -82,7 +67,7 @@ class QkReplyViewModel @Inject constructor(
                 .subscribe { messages.onNext(it) }
     }
 
-    override fun bindView(view: QkReplyView) {
+    override fun bindView(view: AbanReplyView) {
         super.bindView(view)
 
         conversation

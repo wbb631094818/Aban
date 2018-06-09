@@ -1,20 +1,5 @@
 /*
- * Copyright (C) 2017 Moez Bhatti <moez.bhatti@gmail.com>
- *
- * This file is part of QKSMS.
- *
- * QKSMS is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * QKSMS is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with QKSMS.  If not, see <http://www.gnu.org/licenses/>.
+ * Copyright (c) 2018. Arash Hatami
  */
 package feature.notificationprefs
 
@@ -27,9 +12,9 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import com.jakewharton.rxbinding2.view.clicks
-import com.moez.QKSMS.R
-import common.QkDialog
-import common.base.QkThemedActivity
+import ir.hatamiarash.aban.R
+import common.AbanDialog
+import common.base.AbanThemedActivity
 import common.util.extensions.setVisible
 import common.widget.PreferenceView
 import dagger.android.AndroidInjection
@@ -39,9 +24,9 @@ import kotlinx.android.synthetic.main.notification_prefs_activity.*
 import kotlinx.android.synthetic.main.settings_switch_widget.view.*
 import javax.inject.Inject
 
-class NotificationPrefsActivity : QkThemedActivity(), NotificationPrefsView {
+class NotificationPrefsActivity : AbanThemedActivity(), NotificationPrefsView {
 
-    @Inject lateinit var previewModeDialog: QkDialog
+    @Inject lateinit var previewModeDialog: AbanDialog
     @Inject lateinit var viewModelFactory: ViewModelProvider.Factory
 
     override val preferenceClickIntent: Subject<PreferenceView> = PublishSubject.create()

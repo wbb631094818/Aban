@@ -1,4 +1,8 @@
 
+/*
+ * Copyright (c) 2018. Arash Hatami
+ */
+
 package com.android.mms.service_alt;
 
 import android.content.Context;

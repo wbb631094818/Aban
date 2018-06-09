@@ -1,12 +1,16 @@
+/*
+ * Copyright (c) 2018. Arash Hatami
+ */
+
 package feature.settings.about
 
 import android.arch.lifecycle.ViewModelProvider
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import com.jakewharton.rxbinding2.view.clicks
-import com.moez.QKSMS.BuildConfig
-import com.moez.QKSMS.R
-import common.base.QkThemedActivity
+import ir.hatamiarash.aban.BuildConfig
+import ir.hatamiarash.aban.R
+import common.base.AbanThemedActivity
 import common.widget.PreferenceView
 import dagger.android.AndroidInjection
 import io.reactivex.subjects.PublishSubject
@@ -14,7 +18,7 @@ import io.reactivex.subjects.Subject
 import kotlinx.android.synthetic.main.about_activity.*
 import javax.inject.Inject
 
-class AboutActivity : QkThemedActivity(), AboutView {
+class AboutActivity : AbanThemedActivity(), AboutView {
 
     @Inject lateinit var viewModelFactory: ViewModelProvider.Factory
 
