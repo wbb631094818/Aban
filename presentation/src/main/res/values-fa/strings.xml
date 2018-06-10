@@ -20,7 +20,7 @@
   <string name="menu_call">تماس</string>
   <string name="menu_info">جزئیات</string>
   <string name="menu_save">ذخیره عکس</string>
-  <string name="main_title_selected">%d selected</string>
+  <string name="main_title_selected">%d انتخاب شده</string>
   <string name="main_menu_clear">پاکسازی</string>
   <string name="main_menu_archive">بایگانی</string>
   <string name="main_menu_unarchive">بیرون آوردن از بایگانی</string>
@@ -29,19 +29,19 @@
   <string name="main_syncing">همگام سازی پیام ها&#8230;</string>
   <string name="main_sender_you">شما: %s</string>
   <string name="main_message_results_title">نتایج در پیام ها</string>
-  <string name="main_message_results">%d messages</string>
+  <string name="main_message_results">%d پیام</string>
   <string name="inbox_empty_text">مکالمات اینجا نمایش داده میشود</string>
-  <string name="inbox_search_empty_text">No results</string>
+  <string name="inbox_search_empty_text">نتیجه ای نداشت</string>
   <string name="archived_empty_text">بایگانی اینجا نمایش داده میشود</string>
   <string name="scheduled_empty_text">زمانبندیها اینجا نمایش داده میشود</string>
-  <string name="main_fab_cd">Start new conversation</string>
+  <string name="main_fab_cd">مکالمه جدید</string>
   <string name="main_default_sms_title">Love texting again</string>
-  <string name="main_default_sms_message">Make QKSMS your default SMS app</string>
-  <string name="main_default_sms_change">Change</string>
-  <string name="main_permission_required">Permission required</string>
-  <string name="main_permission_sms">QKSMS needs permission to send and view SMS messages</string>
-  <string name="main_permission_contacts">QKSMS needs permission to view your contacts</string>
-  <string name="main_permission_allow">Allow</string>
+  <string name="main_default_sms_message">آبان را برنامه پیشفرض پیامک کنید</string>
+  <string name="main_default_sms_change">تغییر</string>
+  <string name="main_permission_required">نیاز به دسترسی</string>
+  <string name="main_permission_sms">آبان برای ارسال و مشاهده پیام ها به دسترسی نیاز دارد</string>
+  <string name="main_permission_contacts">آبان برای مشاهده مخاطب ها به دسترسی نیاز دارد</string>
+  <string name="main_permission_allow">اجازه بده</string>
   <string name="drawer_inbox">صندوق ورودی</string>
   <string name="drawer_archived">بایگانی</string>
   <string name="drawer_scheduled">زمان بندی</string>
@@ -49,10 +49,10 @@
   <string name="drawer_settings">تنظیمات</string>
   <string name="drawer_plus">نسخه پیشرفته</string>
   <string name="drawer_help">راهنما &amp; نظرات</string>
-  <string name="rate_title">Enjoying QKSMS?</string>
+  <string name="rate_title">از آبان لذت می برید ؟</string>
   <string name="rate_summary">Share some love and rate us on Google Play!</string>
-  <string name="rate_okay">OKAY!</string>
-  <string name="rate_dismiss">DISMISS</string>
+  <string name="rate_okay">باشه</string>
+  <string name="rate_dismiss">لفو</string>
   <string name="dialog_delete_title">حذف</string>
   <string name="dialog_delete_message">قطعاً مکالمه پاک شود?</string>
   <string-array name="message_options">
@@ -60,20 +60,20 @@
     <item>فوروارد</item>
     <item>حذف</item>
   </string-array>
-  <string name="compose_title_selected">%d selected</string>
-  <string name="compose_subtitle_results">%1$d of %2$d results</string>
-  <string name="compose_messages_empty">This is the start of your conversation. Say something nice!</string>
+  <string name="compose_title_selected">%d انتخاب شده</string>
+  <string name="compose_subtitle_results">%1$d از %2$d نتیجه</string>
+  <string name="compose_messages_empty">این شروع مکالمه شماست</string>
   <string name="compose_hint">نوشتن پیام&#8230;</string>
   <string name="compose_menu_copy">Copy text</string>
-  <string name="compose_menu_forward">Forward</string>
-  <string name="compose_menu_delete">Delete</string>
-  <string name="compose_menu_previous">Previous</string>
-  <string name="compose_menu_next">Next</string>
-  <string name="compose_menu_clear">Clear</string>
-  <string name="compose_attach_cd">Add an attachment</string>
-  <string name="compose_gallery_cd">Attach a photo</string>
-  <string name="compose_camera_cd">Take a photo</string>
-  <string name="compose_send_cd">Send message</string>
+  <string name="compose_menu_forward">ارسال مجدد</string>
+  <string name="compose_menu_delete">حذف</string>
+  <string name="compose_menu_previous">قبلی</string>
+  <string name="compose_menu_next">بعدی</string>
+  <string name="compose_menu_clear">پاک کردن</string>
+  <string name="compose_attach_cd">اضافه کردن ضمیمه</string>
+  <string name="compose_gallery_cd">اضافه کردن عکس</string>
+  <string name="compose_camera_cd">گرفتن عکس</string>
+  <string name="compose_send_cd">ارسال پیام</string>
   <string name="message_status_sending">فرستادن&#8230;</string>
   <string name="message_status_delivered">رسیده %s</string>
   <string name="message_status_failed">اوپس، دوباره ارسال کن</string>
@@ -95,13 +95,13 @@
   <string name="settings_night_start_title">زمان شروع</string>
   <string name="settings_night_end_title">زمان پایان</string>
   <string name="settings_text_size_title">اندازه متن</string>
-  <string name="settings_system_font_title">Use system font</string>
+  <string name="settings_system_font_title">استفاده از فونت سیستم</string>
   <string name="settings_auto_emoji_title">Emoji اتوماتیک</string>
   <string name="settings_notifications_title">اعلان‌ها</string>
   <string name="settings_notification_previews_title">Notification previews</string>
   <string name="settings_vibration_title">لرزش</string>
   <string name="settings_ringtone_title">حالت صدا</string>
-  <string name="settings_ringtone_none">None</string>
+  <string name="settings_ringtone_none">خالی</string>
   <string name="settings_qkreply_title">پاسخ برنامه</string>
   <string name="settings_qkreply_summary">پنجره پیام های جدید</string>
   <string name="settings_qkreply_tap_dismiss_title">Tap to dismiss</string>
@@ -110,7 +110,7 @@
   <!-- Do not translate -->
   <string name="settings_should_i_answer_title">پاسخ بدهم?</string>
   <string name="settings_should_i_answer_summary">فیلتر خودکار پیام از شماره های ناخواسته با استفاده از برنامه</string>
-  <string name="settings_delayed_title">Delayed sending</string>
+  <string name="settings_delayed_title">ارسال تاخیر دار</string>
   <string name="settings_delivery_title">تحويل تاييديه</string>
   <string name="settings_delivery_summary">تأیید ارسال موفق پیام</string>
   <string name="settings_unicode_title">لهجه ها</string>
@@ -118,16 +118,16 @@
   <string name="settings_mms_size_title">Auto-compress MMS attachments</string>
   <string name="settings_sync_title">همگام سازی پیام ها</string>
   <string name="settings_sync_summary">همگام سازی پیام ها با پایگاه داده</string>
-  <string name="settings_about_title">About QKSMS</string>
+  <string name="settings_about_title">درباره</string>
   <string name="settings_version">Version %s</string>
   <string name="settings_delay_duration_hint">Enter duration (seconds)</string>
   <string name="blocked_title">مسدود کردن</string>
   <string name="blocked_empty">مکالمات مسدود شده شما در اینجا نشان داده می شود</string>
   <string name="blocked_unblock_dialog_title">آنبلاک</string>
   <string name="blocked_unblock_dialog_message">این مکالمه آنبلاک شود?</string>
-  <string name="about_title">About</string>
-  <string name="about_version_title">Version</string>
-  <string name="about_developer_title">Developer</string>
+  <string name="about_title">درباره</string>
+  <string name="about_version_title">نسخه</string>
+  <string name="about_developer_title">توسعه دهنده</string>
   <string name="about_source_title">Source code</string>
   <string name="about_changelog_title">Changelog</string>
   <string name="about_contact_title">Contact</string>
@@ -215,7 +215,7 @@
   <string-array name="mms_sizes">
     <item>۱۰۰kb</item>
     <item>۲۰۰kb</item>
-    <item>300KB (Recommended)</item>
+    <item>300KB (پیشنهاد می شود)</item>
     <item>۶۰۰kb</item>
     <item>۱۰۰۰kb</item>
     <item>۲۰۰۰kb</item>
