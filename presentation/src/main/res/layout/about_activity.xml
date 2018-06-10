@@ -53,15 +53,17 @@
                 android:id="@+id/source"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
                 app:summary="@string/about_source"
-                app:title="@string/about_source_title" />
+                app:title="@string/about_source_title"/>
 
             <common.widget.PreferenceView
                 android:id="@+id/changelog"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
                 app:summary="@string/about_changelog"
-                app:title="@string/about_changelog_title" />
+                app:title="@string/about_changelog_title"/>
 
             <common.widget.PreferenceView
                 android:id="@+id/contact"
@@ -74,8 +76,9 @@
                 android:id="@+id/license"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
                 app:summary="@string/about_license"
-                app:title="@string/about_license_title" />
+                app:title="@string/about_license_title"/>
 
             <common.widget.PreferenceView
                 android:id="@+id/copyright"
