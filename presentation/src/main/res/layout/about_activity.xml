@@ -84,8 +84,9 @@
                 android:id="@+id/copyright"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
                 app:summary="@string/about_copyright"
-                app:title="@string/about_copyright_title" />
+                app:title="@string/about_copyright_title"/>
 
         </LinearLayout>
 
