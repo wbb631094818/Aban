@@ -7,9 +7,11 @@ import android.app.ProgressDialog
 import android.app.TimePickerDialog
 import android.arch.lifecycle.ViewModelProvider
 import android.arch.lifecycle.ViewModelProviders
+import android.content.Context
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.text.format.DateFormat
+import com.franmontiel.localechanger.LocaleChanger
 import com.jakewharton.rxbinding2.view.clicks
 import ir.hatamiarash.aban.BuildConfig
 import ir.hatamiarash.aban.R
@@ -28,6 +30,7 @@ import kotlinx.android.synthetic.main.settings_activity.*
 import kotlinx.android.synthetic.main.settings_switch_widget.view.*
 import kotlinx.android.synthetic.main.settings_theme_widget.*
 import util.Preferences
+import java.util.*
 import javax.inject.Inject
 
 class SettingsActivity : AbanThemedActivity(), SettingsView {
@@ -58,9 +61,16 @@ class SettingsActivity : AbanThemedActivity(), SettingsView {
         }
     }
 
+    override fun attachBaseContext(newBase: Context) {
+        var base = newBase
+        base = LocaleChanger.configureBaseContext(base)
+        super.attachBaseContext(base)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
+        LocaleChanger.setLocale(Locale("fa", "IR"));
         setContentView(R.layout.settings_activity)
         setTitle(R.string.title_settings)
         showBackButton(true)

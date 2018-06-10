@@ -5,8 +5,10 @@ package feature.conversationinfo
 
 import android.arch.lifecycle.ViewModelProvider
 import android.arch.lifecycle.ViewModelProviders
+import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
+import com.franmontiel.localechanger.LocaleChanger
 import com.jakewharton.rxbinding2.view.clicks
 import ir.hatamiarash.aban.R
 import com.uber.autodispose.android.lifecycle.scope
@@ -18,6 +20,7 @@ import common.util.extensions.setVisible
 import dagger.android.AndroidInjection
 import io.reactivex.subjects.PublishSubject
 import kotlinx.android.synthetic.main.conversation_info_activity.*
+import java.util.*
 import javax.inject.Inject
 
 class ConversationInfoActivity : AbanThemedActivity(), ConversationInfoView {
@@ -37,9 +40,16 @@ class ConversationInfoActivity : AbanThemedActivity(), ConversationInfoView {
 
     private val viewModel by lazy { ViewModelProviders.of(this, viewModelFactory)[ConversationInfoViewModel::class.java] }
 
+    override fun attachBaseContext(newBase: Context) {
+        var base = newBase
+        base = LocaleChanger.configureBaseContext(base)
+        super.attachBaseContext(base)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
+        LocaleChanger.setLocale(Locale("fa", "IR"));
         setContentView(R.layout.conversation_info_activity)
         showBackButton(true)
         viewModel.bindView(this)

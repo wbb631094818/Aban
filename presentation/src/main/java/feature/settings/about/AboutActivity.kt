@@ -6,7 +6,9 @@ package feature.settings.about
 
 import android.arch.lifecycle.ViewModelProvider
 import android.arch.lifecycle.ViewModelProviders
+import android.content.Context
 import android.os.Bundle
+import com.franmontiel.localechanger.LocaleChanger
 import com.jakewharton.rxbinding2.view.clicks
 import ir.hatamiarash.aban.BuildConfig
 import ir.hatamiarash.aban.R
@@ -16,6 +18,7 @@ import dagger.android.AndroidInjection
 import io.reactivex.subjects.PublishSubject
 import io.reactivex.subjects.Subject
 import kotlinx.android.synthetic.main.about_activity.*
+import java.util.*
 import javax.inject.Inject
 
 class AboutActivity : AbanThemedActivity(), AboutView {
@@ -26,9 +29,16 @@ class AboutActivity : AbanThemedActivity(), AboutView {
 
     private val viewModel by lazy { ViewModelProviders.of(this, viewModelFactory)[AboutViewModel::class.java] }
 
+    override fun attachBaseContext(newBase: Context) {
+        var base = newBase
+        base = LocaleChanger.configureBaseContext(base)
+        super.attachBaseContext(base)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
+        LocaleChanger.setLocale(Locale("fa", "IR"));
         setContentView(R.layout.about_activity)
         setTitle(R.string.about_title)
         showBackButton(true)

@@ -6,7 +6,9 @@ package feature.blocked
 import android.app.AlertDialog
 import android.arch.lifecycle.ViewModelProvider
 import android.arch.lifecycle.ViewModelProviders
+import android.content.Context
 import android.os.Bundle
+import com.franmontiel.localechanger.LocaleChanger
 import com.jakewharton.rxbinding2.view.clicks
 import ir.hatamiarash.aban.R
 import common.base.AbanThemedActivity
@@ -15,6 +17,7 @@ import io.reactivex.subjects.PublishSubject
 import io.reactivex.subjects.Subject
 import kotlinx.android.synthetic.main.blocked_activity.*
 import kotlinx.android.synthetic.main.settings_switch_widget.view.*
+import java.util.*
 import javax.inject.Inject
 
 class BlockedActivity : AbanThemedActivity(), BlockedView {
@@ -28,9 +31,16 @@ class BlockedActivity : AbanThemedActivity(), BlockedView {
 
     private val viewModel by lazy { ViewModelProviders.of(this, viewModelFactory)[BlockedViewModel::class.java] }
 
+    override fun attachBaseContext(newBase: Context) {
+        var base = newBase
+        base = LocaleChanger.configureBaseContext(base)
+        super.attachBaseContext(base)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
+        LocaleChanger.setLocale(Locale("fa", "IR"));
         setContentView(R.layout.blocked_activity)
         setTitle(R.string.blocked_title)
         showBackButton(true)

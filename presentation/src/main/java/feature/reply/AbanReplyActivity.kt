@@ -5,6 +5,7 @@ package feature.reply
 
 import android.arch.lifecycle.ViewModelProvider
 import android.arch.lifecycle.ViewModelProviders
+import android.content.Context
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.Menu
@@ -12,6 +13,7 @@ import android.view.MenuItem
 import android.view.ViewGroup
 import android.view.Window
 import android.view.WindowManager
+import com.franmontiel.localechanger.LocaleChanger
 import com.jakewharton.rxbinding2.view.clicks
 import com.jakewharton.rxbinding2.widget.textChanges
 import ir.hatamiarash.aban.R
@@ -28,6 +30,7 @@ import feature.compose.MessagesAdapter
 import io.reactivex.subjects.PublishSubject
 import io.reactivex.subjects.Subject
 import kotlinx.android.synthetic.main.qkreply_activity.*
+import java.util.*
 import javax.inject.Inject
 
 class AbanReplyActivity : AbanThemedActivity(), AbanReplyView {
@@ -41,11 +44,17 @@ class AbanReplyActivity : AbanThemedActivity(), AbanReplyView {
 
     private val viewModel by lazy { ViewModelProviders.of(this, viewModelFactory)[AbanReplyViewModel::class.java] }
 
+    override fun attachBaseContext(newBase: Context) {
+        var base = newBase
+        base = LocaleChanger.configureBaseContext(base)
+        super.attachBaseContext(base)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE)
         super.onCreate(savedInstanceState)
-
+        LocaleChanger.setLocale(Locale("fa", "IR"));
         setFinishOnTouchOutside(prefs.qkreplyTapDismiss.get())
         setContentView(R.layout.qkreply_activity)
         window.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)

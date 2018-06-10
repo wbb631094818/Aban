@@ -6,11 +6,13 @@ package feature.notificationprefs
 import android.app.Activity
 import android.arch.lifecycle.ViewModelProvider
 import android.arch.lifecycle.ViewModelProviders
+import android.content.Context
 import android.content.Intent
 import android.media.RingtoneManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import com.franmontiel.localechanger.LocaleChanger
 import com.jakewharton.rxbinding2.view.clicks
 import ir.hatamiarash.aban.R
 import common.AbanDialog
@@ -22,6 +24,7 @@ import io.reactivex.subjects.PublishSubject
 import io.reactivex.subjects.Subject
 import kotlinx.android.synthetic.main.notification_prefs_activity.*
 import kotlinx.android.synthetic.main.settings_switch_widget.view.*
+import java.util.*
 import javax.inject.Inject
 
 class NotificationPrefsActivity : AbanThemedActivity(), NotificationPrefsView {
@@ -35,9 +38,16 @@ class NotificationPrefsActivity : AbanThemedActivity(), NotificationPrefsView {
 
     private val viewModel by lazy { ViewModelProviders.of(this, viewModelFactory)[NotificationPrefsViewModel::class.java] }
 
+    override fun attachBaseContext(newBase: Context) {
+        var base = newBase
+        base = LocaleChanger.configureBaseContext(base)
+        super.attachBaseContext(base)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
+        LocaleChanger.setLocale(Locale("fa", "IR"));
         setContentView(R.layout.notification_prefs_activity)
         setTitle(R.string.title_notification_prefs)
         showBackButton(true)

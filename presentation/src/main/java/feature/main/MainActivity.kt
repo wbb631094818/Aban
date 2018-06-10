@@ -7,6 +7,7 @@ import android.Manifest
 import android.app.AlertDialog
 import android.arch.lifecycle.ViewModelProvider
 import android.arch.lifecycle.ViewModelProviders
+import android.content.Context
 import android.content.res.ColorStateList
 import android.os.Bundle
 import android.support.design.widget.Snackbar
@@ -18,39 +19,40 @@ import android.view.Gravity
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import com.franmontiel.localechanger.LocaleChanger
 import com.jakewharton.rxbinding2.support.v4.widget.drawerOpen
 import com.jakewharton.rxbinding2.view.clicks
 import com.jakewharton.rxbinding2.widget.textChanges
-import ir.hatamiarash.aban.R
 import com.uber.autodispose.android.lifecycle.scope
 import com.uber.autodispose.kotlin.autoDisposable
 import common.Navigator
 import common.base.AbanThemedActivity
-import common.util.extensions.autoScrollToStart
-import common.util.extensions.dismissKeyboard
-import common.util.extensions.resolveThemeColor
-import common.util.extensions.scrapViews
-import common.util.extensions.setBackgroundTint
-import common.util.extensions.setTint
-import common.util.extensions.setVisible
+import common.util.extensions.*
 import dagger.android.AndroidInjection
 import feature.conversations.ConversationItemTouchCallback
 import feature.conversations.ConversationsAdapter
 import io.reactivex.Observable
 import io.reactivex.subjects.PublishSubject
 import io.reactivex.subjects.Subject
+import ir.hatamiarash.aban.R
 import kotlinx.android.synthetic.main.drawer_view.*
 import kotlinx.android.synthetic.main.main_activity.*
 import repository.SyncRepository
+import java.util.*
 import javax.inject.Inject
 
 class MainActivity : AbanThemedActivity(), MainView {
 
-    @Inject lateinit var navigator: Navigator
-    @Inject lateinit var conversationsAdapter: ConversationsAdapter
-    @Inject lateinit var searchAdapter: SearchAdapter
-    @Inject lateinit var itemTouchCallback: ConversationItemTouchCallback
-    @Inject lateinit var viewModelFactory: ViewModelProvider.Factory
+    @Inject
+    lateinit var navigator: Navigator
+    @Inject
+    lateinit var conversationsAdapter: ConversationsAdapter
+    @Inject
+    lateinit var searchAdapter: SearchAdapter
+    @Inject
+    lateinit var itemTouchCallback: ConversationItemTouchCallback
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
 
     override val activityResumedIntent: Subject<Unit> = PublishSubject.create()
     override val queryChangedIntent by lazy { toolbarSearch.textChanges() }
@@ -94,6 +96,8 @@ class MainActivity : AbanThemedActivity(), MainView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
         viewModel.bindView(this)
+
+        LocaleChanger.setLocale(Locale("fa", "IR"));
 
         toggle.syncState()
         toolbar.setNavigationOnClickListener {
@@ -292,4 +296,9 @@ class MainActivity : AbanThemedActivity(), MainView {
         backPressedIntent.onNext(Unit)
     }
 
+    override fun attachBaseContext(newBase: Context) {
+        var base = newBase
+        base = LocaleChanger.configureBaseContext(base)
+        super.attachBaseContext(base)
+    }
 }

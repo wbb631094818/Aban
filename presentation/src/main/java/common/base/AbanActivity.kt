@@ -4,13 +4,16 @@
 package common.base
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import com.franmontiel.localechanger.LocaleChanger
 import io.reactivex.subjects.BehaviorSubject
 import io.reactivex.subjects.Subject
 import kotlinx.android.synthetic.main.toolbar.*
+import java.util.*
 
 abstract class AbanActivity : AppCompatActivity() {
 
@@ -19,7 +22,14 @@ abstract class AbanActivity : AppCompatActivity() {
     @SuppressLint("InlinedApi")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        LocaleChanger.setLocale(Locale("fa", "IR"));
         onNewIntent(intent)
+    }
+
+    override fun attachBaseContext(newBase: Context) {
+        var base = newBase
+        base = LocaleChanger.configureBaseContext(base)
+        super.attachBaseContext(base)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

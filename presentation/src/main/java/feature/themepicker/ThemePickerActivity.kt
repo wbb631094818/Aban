@@ -5,9 +5,11 @@ package feature.themepicker
 
 import android.arch.lifecycle.ViewModelProvider
 import android.arch.lifecycle.ViewModelProviders
+import android.content.Context
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.widget.LinearLayoutManager
+import com.franmontiel.localechanger.LocaleChanger
 import com.jakewharton.rxbinding2.view.clicks
 import ir.hatamiarash.aban.R
 import common.base.AbanThemedActivity
@@ -18,6 +20,7 @@ import io.reactivex.subjects.PublishSubject
 import io.reactivex.subjects.Subject
 import kotlinx.android.synthetic.main.theme_picker_activity.*
 import kotlinx.android.synthetic.main.theme_picker_hsv.*
+import java.util.*
 import javax.inject.Inject
 
 class ThemePickerActivity : AbanThemedActivity(), ThemePickerView {
@@ -34,9 +37,16 @@ class ThemePickerActivity : AbanThemedActivity(), ThemePickerView {
 
     private val viewModel by lazy { ViewModelProviders.of(this, viewModelFactory)[ThemePickerViewModel::class.java] }
 
+    override fun attachBaseContext(newBase: Context) {
+        var base = newBase
+        base = LocaleChanger.configureBaseContext(base)
+        super.attachBaseContext(base)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
+        LocaleChanger.setLocale(Locale("fa", "IR"));
         setContentView(R.layout.theme_picker_activity)
         setTitle(R.string.title_theme)
         showBackButton(true)
