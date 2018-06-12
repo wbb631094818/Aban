@@ -214,7 +214,7 @@
 	<string name="notification_message_failed_text">The message to %s failed to send</string>
 
 	<string-array name="night_modes">
-		<item>غیر فهال</item>
+		<item>غیر فعال</item>
 		<item>همیشه روشن</item>
 		<item>اتوماتیک</item>
 	</string-array>
