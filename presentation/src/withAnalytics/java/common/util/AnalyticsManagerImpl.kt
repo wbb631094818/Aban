@@ -34,7 +34,7 @@ import javax.inject.Singleton
 @Singleton
 class AnalyticsManagerImpl @Inject constructor(context: Context) : AnalyticsManager {
 
-    private val amplitude: AmplitudeClient = Amplitude.getInstance().initialize(context, BuildConfig.AMPLITUDE_API_KEY)
+    private val amplitude: AmplitudeClient = Amplitude.getInstance().initialize(context, BuildConfig.AMPLITUDE_API_KEY).enableForegroundTracking(this)
     private val mixpanel: MixpanelAPI = MixpanelAPI.getInstance(context, BuildConfig.MIXPANEL_API_KEY)
 
     init {
