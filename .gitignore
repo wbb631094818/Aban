@@ -66,4 +66,4 @@ freeline_project_description.json
 /data/src/main/AndroidManifest.xml
 /domain/src/main/AndroidManifest.xml
 /presentation/src/main/AndroidManifest.xml
-/app/fabric.properties
+fabric.properties
