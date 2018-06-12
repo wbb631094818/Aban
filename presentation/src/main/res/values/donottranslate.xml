@@ -5,7 +5,7 @@
 
 <resources>
 
-    <string name="about_developer">Arash Hatami</string>
+    <string name="about_developer">آرش حاتمی</string>
     <string name="about_source">https://github.com/moezbhatti/qksms</string>
     <string name="about_changelog">https://github.com/moezbhatti/qksms/releases</string>
     <string name="about_contact">info@arash-hatami.ir</string>
