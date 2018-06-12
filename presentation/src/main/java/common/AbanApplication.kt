@@ -68,7 +68,6 @@ class AbanApplication : Application(), HasActivityInjector {
     override fun onCreate() {
         super.onCreate()
 
-
         Bugsnag.init(this, Configuration(BuildConfig.BUGSNAG_API_KEY).apply {
             appVersion = BuildConfig.VERSION_NAME
             projectPackages = packages
