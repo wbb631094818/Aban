@@ -113,7 +113,7 @@
 	<string name="settings_delayed_title">ارسال تاخیر دار</string>
 	<string name="settings_delivery_title">تحويل تاييديه</string>
 	<string name="settings_delivery_summary">تأیید ارسال موفق پیام</string>
-	<string name="settings_unicode_title">لهجه ها</string>
+	<string name="settings_unicode_title">اصلاح پیام</string>
 	<string name="settings_unicode_summary">حذف کاراکترهای اضافه پیام ارسالی</string>
 	<string name="settings_mms_size_title">فشرده سازی خودکار محتوای MMS</string>
 	<string name="settings_sync_title">همگام سازی پیام ها</string>
