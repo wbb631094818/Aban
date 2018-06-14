@@ -131,12 +131,12 @@ class SettingsActivity : AbanThemedActivity(), SettingsView {
         mmsSizeDialog.adapter.selectedItem = state.maxMmsSizeId
     }
 
-    override fun showAbansmsPlusSnackbar() {
-        Snackbar.make(contentView, R.string.toast_qksms_plus, Snackbar.LENGTH_LONG).run {
-            setAction(R.string.button_more, { viewAbansmsPlusIntent.onNext(Unit) })
-            show()
-        }
-    }
+//    override fun showAbansmsPlusSnackbar() {
+//        Snackbar.make(contentView, R.string.toast_qksms_plus, Snackbar.LENGTH_LONG).run {
+//            setAction(R.string.button_more, { viewAbansmsPlusIntent.onNext(Unit) })
+//            show()
+//        }
+//    }
 
     // TODO change this to a PopupWindow
     override fun showNightModeDialog() = nightModeDialog.show(this)

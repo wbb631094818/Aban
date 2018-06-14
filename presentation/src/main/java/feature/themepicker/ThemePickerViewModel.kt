@@ -55,11 +55,11 @@ class ThemePickerViewModel @Inject constructor(
         view.hsvThemeAppliedIntent
                 .withLatestFrom(view.hsvThemeSelectedIntent, { _, color -> color })
                 .withLatestFrom(billingManager.upgradeStatus, { color, upgraded ->
-                    if (!upgraded) {
-                        view.showAbansmsPlusSnackbar()
-                    } else {
+//                    if (!upgraded) {
+//                        view.showAbansmsPlusSnackbar()
+//                    } else {
                         theme.set(color)
-                    }
+                    //}
                 })
                 .autoDisposable(view.scope())
                 .subscribe()

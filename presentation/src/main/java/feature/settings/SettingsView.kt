@@ -19,7 +19,7 @@ interface SettingsView : AbanView<SettingsState> {
     val sendDelayChangedIntent: Observable<Int>
     val mmsSizeSelectedIntent: Observable<Int>
 
-    fun showAbansmsPlusSnackbar()
+    //fun showAbansmsPlusSnackbar()
     fun showNightModeDialog()
     fun showStartTimePicker(hour: Int, minute: Int)
     fun showEndTimePicker(hour: Int, minute: Int)

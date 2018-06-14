@@ -62,12 +62,12 @@ class ThemePickerActivity : AbanThemedActivity(), ThemePickerView {
         materialColors.adapter = themeAdapter
     }
 
-    override fun showAbansmsPlusSnackbar() {
-        Snackbar.make(contentView, R.string.toast_qksms_plus, Snackbar.LENGTH_LONG).run {
-            setAction(R.string.button_more, { viewAbansmsPlusIntent.onNext(Unit) })
-            show()
-        }
-    }
+//    override fun showAbansmsPlusSnackbar() {
+//        Snackbar.make(contentView, R.string.toast_qksms_plus, Snackbar.LENGTH_LONG).run {
+//            setAction(R.string.button_more, { viewAbansmsPlusIntent.onNext(Unit) })
+//            show()
+//        }
+//    }
 
     override fun render(state: ThemePickerState) {
         tabs.setThreadId(state.threadId)

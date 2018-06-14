@@ -16,6 +16,6 @@ interface ThemePickerView : AbanView<ThemePickerState> {
     val viewAbansmsPlusIntent: Subject<Unit>
 
     fun setCurrentTheme(color: Int)
-    fun showAbansmsPlusSnackbar()
+    //fun showAbansmsPlusSnackbar()
 
 }

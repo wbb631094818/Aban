@@ -149,11 +149,11 @@ class SettingsViewModel @Inject constructor(
 
         view.nightModeSelectedIntent
                 .withLatestFrom(billingManager.upgradeStatus, { mode, upgraded ->
-                    if (!upgraded && mode == Preferences.NIGHT_MODE_AUTO) {
-                        view.showAbansmsPlusSnackbar()
-                    } else {
+//                    if (!upgraded && mode == Preferences.NIGHT_MODE_AUTO) {
+//                        view.showAbansmsPlusSnackbar()
+//                    } else {
                         nightModeManager.updateNightMode(mode)
-                    }
+                    //}
                 })
                 .autoDisposable(view.scope())
                 .subscribe()
@@ -176,11 +176,11 @@ class SettingsViewModel @Inject constructor(
 
         view.sendDelayChangedIntent
                 .withLatestFrom(billingManager.upgradeStatus, { duration, upgraded ->
-                    if (!upgraded && duration != 0) {
-                        view.showAbansmsPlusSnackbar()
-                    } else {
+//                    if (!upgraded && duration != 0) {
+//                        view.showAbansmsPlusSnackbar()
+//                    } else {
                         prefs.sendDelay.set(duration)
-                    }
+                    //}
                 })
                 .autoDisposable(view.scope())
                 .subscribe()
