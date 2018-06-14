@@ -170,9 +170,9 @@
 	<string name="qkreply_menu_collapse">کمتر</string>
 	<string name="qkreply_menu_view">بازکردن پیام</string>
 	<string name="theme_material">متریال</string>
-	<string name="theme_plus">پریمیوم</string>
-	<string name="theme_hex">هکس</string>
-	<string name="theme_apply">قطعی</string>
+	<string name="theme_plus">آبان</string>
+	<string name="theme_hex">HEX</string>
+	<string name="theme_apply">تایید</string>
 	<string name="notification_reply">پاسخ</string>
 	<string name="notification_read">خوانده شده</string>
 	<string name="button_cancel">کنسل</string>
