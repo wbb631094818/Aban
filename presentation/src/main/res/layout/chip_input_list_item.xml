@@ -2,14 +2,23 @@
 <!--
   ~ Copyright (c) 2018. Arash Hatami
   -->
-<common.widget.AbanEditText xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@null"
-    android:imeOptions="flagNoExtractUi"
-    android:inputType="textFilter|textNoSuggestions"
-    android:privateImeOptions="nm"
-    android:textColorHint="?android:attr/textColorTertiary"
-    app:textColor="primary"
-    app:textSize="primary" />
+<common.widget.AbanEditText
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:layout_marginEnd="10dp"
+	android:layout_marginLeft="10dp"
+	android:layout_marginRight="10dp"
+	android:layout_marginStart="10dp"
+	android:background="@null"
+	android:imeOptions="flagNoExtractUi"
+	android:inputType="textFilter|textNoSuggestions"
+	android:paddingEnd="10dp"
+	android:paddingLeft="10dp"
+	android:paddingRight="10dp"
+	android:paddingStart="10dp"
+	android:privateImeOptions="nm"
+	android:textColorHint="?android:attr/textColorTertiary"
+	app:textColor="primary"
+	app:textSize="primary"/>
