@@ -42,7 +42,7 @@
         app:layout_constraintBottom_toBottomOf="@id/body"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <common.widget.TightTextView
+    <common.widget.AbanTextView
         android:id="@+id/body"
         style="@style/TextPrimary"
         android:layout_width="wrap_content"
