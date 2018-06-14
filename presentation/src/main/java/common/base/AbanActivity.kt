@@ -13,6 +13,7 @@ import com.franmontiel.localechanger.LocaleChanger
 import io.reactivex.subjects.BehaviorSubject
 import io.reactivex.subjects.Subject
 import kotlinx.android.synthetic.main.toolbar.*
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 import java.util.*
 
 abstract class AbanActivity : AppCompatActivity() {
@@ -29,6 +30,7 @@ abstract class AbanActivity : AppCompatActivity() {
     override fun attachBaseContext(newBase: Context) {
         var base = newBase
         base = LocaleChanger.configureBaseContext(base)
+        base = CalligraphyContextWrapper.wrap(base)
         super.attachBaseContext(base)
     }
 

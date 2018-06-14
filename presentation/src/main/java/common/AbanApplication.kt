@@ -46,6 +46,9 @@ import migration.AbanRealmMigration
 import timber.log.Timber
 import java.util.*
 import javax.inject.Inject
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig
+
+
 
 
 class AbanApplication : Application(), HasActivityInjector {
@@ -101,11 +104,20 @@ class AbanApplication : Application(), HasActivityInjector {
                 Locale("en", "US"),
                 Locale("fa", "IR")
         ));
+
+        setFont()
     }
 
 
     override fun activityInjector(): AndroidInjector<Activity> {
         return dispatchingAndroidInjector
+    }
+
+    private fun setFont() {
+        CalligraphyConfig.initDefault(CalligraphyConfig.Builder()
+                .setDefaultFontPath("fonts/IRANSansMobile.ttf")
+                .setFontAttrId(R.attr.fontPath)
+                .build())
     }
 
     override fun onConfigurationChanged(newConfig: android.content.res.Configuration) {
