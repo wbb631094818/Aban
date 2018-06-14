@@ -32,12 +32,13 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
+        android:gravity="right|end"
         app:layout_constraintBottom_toTopOf="@id/snippet"
         app:layout_constraintEnd_toStartOf="@id/date"
         app:layout_constraintStart_toEndOf="@id/avatars"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed"
-        tools:text="@tools:sample/full_names" />
+        tools:text="@tools:sample/full_names"/>
 
     <common.widget.AbanTextView
         android:id="@+id/snippet"
