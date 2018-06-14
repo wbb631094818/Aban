@@ -235,4 +235,13 @@
 		<item>lol</item>
 		<item>ردیفه</item>
 	</string-array>
+	<integer-array name="mms_sizes_ids">
+		<item>100</item>
+		<item>200</item>
+		<item>300</item>
+		<item>600</item>
+		<item>1000</item>
+		<item>2000</item>
+		<item>0</item>
+	</integer-array>
 </resources>
