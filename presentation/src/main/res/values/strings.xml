@@ -48,7 +48,7 @@
 	<string name="drawer_more">ادامه</string>
 	<string name="drawer_settings">تنظیمات</string>
 	<string name="drawer_plus">نسخه پیشرفته</string>
-	<string name="drawer_help">راهنما &amp; نظرات</string>
+	<string name="drawer_help">ارسال بازخورد</string>
 	<string name="rate_title">از آبان لذت می برید ؟</string>
 	<string name="rate_summary">Share some love and rate us on Google Play!</string>
 	<string name="rate_okay">باشه</string>
@@ -64,7 +64,7 @@
 	<string name="compose_subtitle_results">%1$d از %2$d نتیجه</string>
 	<string name="compose_messages_empty">این شروع مکالمه شماست</string>
 	<string name="compose_hint">نوشتن پیام&#8230;</string>
-	<string name="compose_menu_copy">Copy text</string>
+	<string name="compose_menu_copy">کپی کردن</string>
 	<string name="compose_menu_forward">ارسال مجدد</string>
 	<string name="compose_menu_delete">حذف</string>
 	<string name="compose_menu_previous">قبلی</string>
@@ -74,8 +74,8 @@
 	<string name="compose_gallery_cd">اضافه کردن عکس</string>
 	<string name="compose_camera_cd">گرفتن عکس</string>
 	<string name="compose_send_cd">ارسال پیام</string>
-	<string name="message_status_sending">فرستادن&#8230;</string>
-	<string name="message_status_delivered">رسیده %s</string>
+	<string name="message_status_sending">در حال ارسال &#8230;</string>
+	<string name="message_status_delivered">دریافت شد %s</string>
 	<string name="message_status_failed">اوپس ، دوباره ارسال کن</string>
 	<string name="info_title">جزئیات</string>
 	<string name="info_notifications">اعلانها</string>
@@ -85,13 +85,13 @@
 	<string name="info_block">بلاک</string>
 	<string name="info_unblock">آنبلاک</string>
 	<string name="info_delete">حذف مکالمه</string>
-	<string name="gallery_toast_saved">عکسای ذخیره</string>
+	<string name="gallery_toast_saved">ذخیره شد</string>
 	<string name="settings_category_appearance">ظاهر</string>
 	<string name="settings_category_general">عمومی</string>
 	<string name="settings_category_qkreply">پنجره پاسخ</string>
 	<string name="settings_theme_title">پوسته</string>
 	<string name="settings_night_title">حالت شب</string>
-	<string name="settings_black_title">حالت شب کامل</string>
+	<string name="settings_black_title">حالت کاملا تیره</string>
 	<string name="settings_night_start_title">زمان شروع</string>
 	<string name="settings_night_end_title">زمان پایان</string>
 	<string name="settings_text_size_title">اندازه متن</string>
@@ -111,11 +111,11 @@
 	<string name="settings_should_i_answer_title">پاسخ بدهم ؟</string>
 	<string name="settings_should_i_answer_summary">فیلتر خودکار پیام از شماره های ناخواسته با استفاده از برنامه مخصوص</string>
 	<string name="settings_delayed_title">ارسال تاخیر دار</string>
-	<string name="settings_delivery_title">تحويل تاييديه</string>
-	<string name="settings_delivery_summary">تأیید ارسال موفق پیام</string>
+	<string name="settings_delivery_title">تاییدیه دریافت</string>
+	<string name="settings_delivery_summary">تأیید دریافت موفق پیام</string>
 	<string name="settings_unicode_title">اصلاح پیام</string>
 	<string name="settings_unicode_summary">حذف کاراکترهای اضافه پیام ارسالی</string>
-	<string name="settings_mms_size_title">فشرده سازی خودکار محتوای MMS</string>
+	<string name="settings_mms_size_title">فشرده سازی خودکار محتوای چندرسانه ای</string>
 	<string name="settings_sync_title">همگام سازی پیام ها</string>
 	<string name="settings_sync_summary">همگام سازی پیام ها با پایگاه داده</string>
 	<string name="settings_about_title">درباره</string>
@@ -124,7 +124,7 @@
 	<string name="blocked_title">مسدود کردن</string>
 	<string name="blocked_empty">مکالمات مسدود شده شما در اینجا نشان داده می شود</string>
 	<string name="blocked_unblock_dialog_title">آنبلاک</string>
-	<string name="blocked_unblock_dialog_message">این مکالمه آنبلاک شود?</string>
+	<string name="blocked_unblock_dialog_message">این مکالمه آنبلاک شود ؟</string>
 	<string name="about_title">درباره</string>
 	<string name="about_version_title">نسخه</string>
 	<string name="about_developer_title">توسعه دهنده</string>
@@ -137,7 +137,7 @@
 	<string name="qksms_plus_description_summary">شما میتوانید با %s از ما حمایت کنید</string>
 	<string name="qksms_plus_upgrade">زمان توسعه %1$s %2$s</string>
 	<string name="qksms_plus_upgrade_donate">نسخه پیشرفته و حمایت %1$s %2$s</string>
-	<string name="qksms_plus_thanks_title">ممنون از حمایت شما!</string>
+	<string name="qksms_plus_thanks_title">ممنون از حمایت شما !</string>
 	<string name="qksms_plus_thanks_summary">حال شما به همه امکانات دسترسی دارید</string>
 	<string name="qksms_plus_free_title">با کمک مالی از ما حمایت کنید</string>
 	<string name="qksms_plus_donate">کمک مالی</string>
@@ -223,16 +223,14 @@
 	</string-array>
 	<string-array name="qk_responses">
 		<item>باشه</item>
-		<item>یک لحظه لطفاً</item>
-		<item>به روش من</item>
+		<item>یک لحظه وایساً</item>
 		<item>ممنون</item>
 		<item>خوبه</item>
-		<item>چه خبره?</item>
-		<item>موافقت کرد</item>
+		<item>چه خبر ؟</item>
 		<item>خیر</item>
 		<item>دوستت دارم</item>
-		<item>متاسفم</item>
-		<item>lol</item>
+		<item>ببخشید</item>
+		<item>خخخخخخخ</item>
 		<item>ردیفه</item>
 	</string-array>
 	<integer-array name="mms_sizes_ids">
