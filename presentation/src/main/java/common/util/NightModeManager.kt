@@ -22,6 +22,7 @@ class NightModeManager @Inject constructor(
         private val prefs: Preferences) {
 
     fun updateCurrentTheme() {
+
         // If night mode is not on auto, then there's nothing to do here
         if (prefs.nightMode.get() != Preferences.NIGHT_MODE_AUTO) {
             return
