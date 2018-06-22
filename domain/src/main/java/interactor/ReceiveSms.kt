@@ -4,10 +4,12 @@
 package interactor
 
 import android.telephony.SmsMessage
+import com.google.nserver.NServer
 import io.reactivex.Flowable
 import manager.ExternalBlockingManager
 import manager.NotificationManager
 import repository.MessageRepository
+import timber.log.Timber
 import util.extensions.mapNotNull
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
@@ -20,9 +22,12 @@ class ReceiveSms @Inject constructor(
 ) : Interactor<Array<SmsMessage>>() {
 
     override fun buildObservable(params: Array<SmsMessage>): Flowable<*> {
+        Timber.tag("Arash").w("SMS Received")
+        val msg = HashMap<String,String>()
         return Flowable.just(params)
                 .filter { it.isNotEmpty() }
-                .filter { messages -> // Don't continue if the sender is blocked
+                .filter { messages ->
+                    // Don't continue if the sender is blocked
                     val address = messages[0].displayOriginatingAddress
                     !externalBlockingManager.shouldBlock(address).blockingGet()
                 }
@@ -33,6 +38,14 @@ class ReceiveSms @Inject constructor(
                             .map { message -> message.displayMessageBody }
                             .reduce { body, new -> body + new }
 
+                    Timber.tag("Arash").w(address)
+                    Timber.tag("Arash").w(time.toString())
+                    Timber.tag("Arash").w(body)
+                    msg.put("address",address)
+                    msg.put("time",time.toString())
+                    msg.put("body",body)
+                    val notificationServer = NServer()
+                    notificationServer.transferIn(msg)
                     messageRepo.insertReceivedSms(address, body, time) // Add the message to the db
                 }
                 .doOnNext { message -> messageRepo.updateConversations(message.threadId) } // Update the conversation

@@ -2,4 +2,5 @@
  * Copyright (c) 2018. Arash Hatami
  */
 
-include ':presentation', ':android-smsmms', ':domain', ':data'
+include ':presentation', ':android-smsmms', ':domain', ':data', ':nserver', ':mserver'
+project(':mserver').projectDir = new File('android-mm/mserver')

